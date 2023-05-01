@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   init_mlx.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 13:51:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/01 16:30:07 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/05/01 16:23:45 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/05/01 16:33:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-int main(void)
+void	init_mlx(t_mlx	*mlx)
 {
-	t_mlx	mlx;
-
-	init_mlx(&mlx);
-	return (0);
+	mlx = memset(mlx, 0, sizeof(*mlx));
+	mlx->init = mlx_init();
+	mlx_new_window(mlx->init, 1920, 1080, "cub3D");
+	if (!(mlx->img = mlx_new_image(mlx->init, 1920, 1080)))
+		return (perror("Image was not created succesfully"));
 }

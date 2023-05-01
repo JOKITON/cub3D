@@ -85,3 +85,7 @@ El proyecto se separa en difentes partes:
 		of your choice.
 
 2. Recoger los datos en 2D e interpretarlos en 3D:
+	1. Raycasting loop
+	2. Ray parsing:
+		- Pitagoras with each square to know how much the ray has to travel:
+			- 

@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/01 10:49:22 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/01 16:39:39 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,13 +33,11 @@ UTILS2 = -g3 -v
 
 CC = cc
 
-UTILS = main.c
+UTILS = main.c init_mlx.c
 	
 OBJS = $(UTILS:.c=.o)
 
 FLAGS = -Wall -Wextra -Werror
-
-.SILENT:
 
 all: $(NAME)
 
@@ -51,7 +49,7 @@ $(NAME): $(OBJS)
 	make -C $(LIBFT_DIR) all
 	$(MV) $(LIB_DIR)$(MLIB) $(C_DIR)
 	$(MV) $(LIBFT_DIR)$(LIBFT_LIB) $(C_DIR)
-	$(CC) $(FLAGS) $(LIBFT_LIB) $(MLIB) -L . -lmlx $(OBJS) -o $(NAME)
+	$(CC) $(FLAGS) $(LIBFT_LIB) $(MLIB) -Lmlx -lmlx -framework OpenGL -framework AppKit -lm $(OBJS) -o $(NAME)
 
 clean:
 	make -C $(LIB_DIR) clean

@@ -1,18 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 13:51:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/01 10:50:22 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/05/01 10:50:05 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3D.h"
+#ifndef CUB3D_H
+# define CUB3D_H
 
-int main(void)
-{
-	return (1);
-}
+#include "math.h"
+#include "minilibx-linux/mlx_int.h"
+#include "minilibx-linux/mlx.h"
+#include "stdlib.h"
+#include "stdio.h"
+#include "unistd.h"
+
+#endif

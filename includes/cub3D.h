@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/04 15:51:08 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:21:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,13 @@
 # include <string.h>
 
 void	in_mlx(t_mlx	*mlx);
+void	init_image(t_mlx	*mlx, t_grid	*grid);
+
+// VECTORS
+void	vector_add(t_vector *vec);
+void	vector_substract(t_vector *vec);
+void	vector_scalate(t_vector *vec, double scalateNumber);
+double	vector_length(t_vector *vec);
+double	vector_unitary(t_vector *vec, double length);
 
 #endif

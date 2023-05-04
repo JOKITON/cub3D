@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   cub3D.h                                            :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/01 16:37:24 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/05/04 15:53:18 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CUB3D_H
-# define CUB3D_H
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-#include <math.h>
-#include "minilibx-linux/mlx.h"
-#include <stdlib.h>
-#include <stdio.h>
-#include <unistd.h>
-#include <string.h>
+typedef	struct s_vector
+{
+	double x; // x axis
+	double y; // y axis
+	double z; // z axis
+}	t_vector;
 
 typedef struct s_grid
 {
 	int	mapWeight; // 2d grid
-	int	mapHeight;
+	int	mapWidth;
 
 	int	screenWeight; // minilibX-image
-	int	screenHeight;
+	int	screenWidth;
 
 	int	posX; // starting pos of character & Pos Vector
 	int	posY;
@@ -41,9 +41,12 @@ typedef struct s_grid
 typedef	struct s_mlx
 {
 	void	*init;
-	char	*img;
-} t_mlx;
+	void	*img_win;
 
-void	init_mlx(t_mlx	*mlx);
+	char	*img_addr;
+	int		*bits_per_pixel;
+	int		*line_length;
+	int		*endian;
+} t_mlx;
 
 #endif

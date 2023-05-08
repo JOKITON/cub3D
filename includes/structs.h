@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/05 10:09:43 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/08 12:24:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,28 +33,17 @@ typedef struct s_grid
 	int	posX; // starting pos of character & Pos Vector
 	int	posY;
 
-	int	dirX; // initial pos of Direction Vector
-	int	dirY;
+	double	dirX; // initial pos of Direction Vector
+	double	dirY;
 
-	int	planeX; // Camera Vector
-	int	planeY;
-	
-	// Unitary Double Variables
+	double	planeX; // Screen position
+	double	planeY;
 
-	double	u_mapHeight; // 2d grid
-	double	u_mapWidth;
+	double	cameraX;
+	double	cameraY;
 
-	double	u_screenHeight; // minilibX-image
-	double	u_screenWidth;
-
-	double	u_posX; // starting pos of character & Pos Vector
-	double	u_posY;
-
-	double	u_dirX; // initial pos of Direction Vector
-	double	u_dirY;
-
-	double	u_planeX; // Camera Vector
-	double	u_planeY;
+	double	rayDirX;
+	double	rayDirY;
 } t_grid;
 
 typedef	struct s_mlx

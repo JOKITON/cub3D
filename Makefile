@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/05 10:12:00 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/08 12:26:43 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ UTILS2 = -g3 -v
 
 CC = cc
 
-UTILS_NAME = main.c mlx_init.c image.c init_unitary.c
+UTILS_NAME = main.c mlx_init.c image.c
 
 UTILS = $(addprefix srcs/, $(UTILS_NAME))
 
@@ -45,7 +45,10 @@ FLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(OBJS): $(UTILS)
+objs/ :
+	mkdir objs/
+
+$(OBJS): $(UTILS) objs/
 	$(CC) $(FLAGS) -c $^
 	mv $(OBJ) objs/
 

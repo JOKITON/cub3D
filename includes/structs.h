@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/08 12:24:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:20:56 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,29 @@
 
 typedef	struct s_vector
 {
-	double x; // x axis
-	double y; // y axis
-	double z; // z axis
+	// Direction vector for Camera Plane
+	double	rayDirX;
+	double	rayDirY;
+
+	// Starting side line distance for a non-decimal X/Y value
+	double	sideDistX;
+	double	sideDistY;
+
+	// Common line distance between one value of X & Y
+	double	deltaDisX;
+	double	deltaDisY;
+
+	// Jump Direction on Start
+	int	stepX;
+	int	stepY;
 }	t_vector;
 
 typedef struct s_grid
 {
 	char	**grid;
 
-	int	mapHeight; // 2d grid
-	int	mapWidth;
+	int	mapY; // 2d grid
+	int	mapX;
 
 	int	screenHeight; // minilibX-image
 	int	screenWidth;
@@ -42,8 +54,7 @@ typedef struct s_grid
 	double	cameraX;
 	double	cameraY;
 
-	double	rayDirX;
-	double	rayDirY;
+	t_vector	*vec;
 } t_grid;
 
 typedef	struct s_mlx

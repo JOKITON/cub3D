@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/08 12:30:41 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/08 13:30:06 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,9 @@ int		crt_image(double x, double y, t_grid	*alg)
 	alg->planeX = x;
 	alg->planeY = y;
 
-	// Start of raycasting
-	alg->rayDirX = (alg->planeX + alg->dirX) * alg->cameraX;
-	alg->rayDirY = (alg->planeY + alg->dirY) * alg->cameraY;
-
-	// Next is to get the travel distance from actual posX & poxY to next X-/Y-side
+	init_rays(alg);
+	init_sides(alg);
+	find_wall(alg);
 	return (pixel);
 }
 
@@ -35,9 +33,9 @@ void	init_image(t_mlx	*mlx, t_grid	*grid)
 
 	x = 0;
 	y = 0;
-	while (y++ >= grid->mapWidth)
+	while (y++ >= grid->mapY)
 	{
-		while (x++ >= grid->mapWidth)
+		while (x++ >= grid->mapX)
 		{
 			mlx->img_addr[(y * x) + x] = crt_image((double)((x - 0.5) * 2), (double)((y - 0.5) * 2), grid);
 		}

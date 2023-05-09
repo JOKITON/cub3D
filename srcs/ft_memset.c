@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 13:51:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/09 15:47:50 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/05/09 15:43:17 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/05/09 15:43:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-int	main(void)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	t_mlx		mlx;
-	t_grid		grid;
+	char			*content;
+	int				number2;
+	unsigned char	convert;
 
-	in_mlx(&mlx);
-	in_grid(&grid);
-	return (0);
+	content = (char *)b;
+	number2 = 0;
+	convert = c - '0';
+	while (len > 0)
+	{
+		content[number2] = convert + '0';
+		len--;
+		number2++;
+	}
+	return (content);
 }

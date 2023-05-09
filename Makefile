@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/08 12:26:43 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/09 14:32:08 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,6 +65,7 @@ clean:
 	$(RM) $(RM_FLAGS) $(MLIB)
 	$(RM) $(RM_FLAGS) $(LIBFT_LIB)
 	$(RM) $(RM_FLAGS) $(OBJS)
+	$(RM) $(RM_FLAGS) objs/
 
 fclean: clean
 	$(RM) $(RM_FLAGS) $(NAME)

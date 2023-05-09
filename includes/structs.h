@@ -6,12 +6,21 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/08 13:20:56 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:51:42 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
+
+typedef	struct s_colors
+{
+	int	lineHeight;
+
+	int	drawStart;
+	int	drawEnd;
+}	t_colors;
+
 
 typedef	struct s_vector
 {
@@ -30,6 +39,9 @@ typedef	struct s_vector
 	// Jump Direction on Start
 	int	stepX;
 	int	stepY;
+
+	double	perpWallDist; // The closest ray length from camera plane to wall
+	t_colors	*c;
 }	t_vector;
 
 typedef struct s_grid
@@ -66,6 +78,8 @@ typedef	struct s_mlx
 	int		*bits_per_pixel;
 	int		*line_length;
 	int		*endian;
+
+	t_grid	*grid;
 } t_mlx;
 
 #endif

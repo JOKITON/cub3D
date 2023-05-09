@@ -6,64 +6,66 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:19:22 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/08 13:29:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:33:22 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-void	init_sides(t_grid	*grid)
+void	init_sides(t_grid	*grid, t_vector	*vec)
 {
-	if (grid->vec->rayDirX < 0)
+	if (vec->rayDirX < 0)
 	{
-		grid->vec->stepX = -1;
-		grid->vec->sideDistX = (grid->posX - grid->mapX) * grid->vec->deltaDisX;
+		vec->stepX = -1;
+		vec->sideDistX = (grid->posX - grid->mapX) * vec->deltaDisX;
 	}
 	else
 	{
-		grid->vec->stepX = 1;
-		grid->vec->sideDistX = (grid->mapX + 1.0 - grid->posX) * grid->vec->deltaDisX;
+		vec->stepX = 1;
+		vec->sideDistX = (grid->mapX + 1.0 - grid->posX) * vec->deltaDisX;
 	}
-	if (grid->vec->rayDirY < 0)
+	if (vec->rayDirY < 0)
 	{
-		grid->vec->stepY = -1;
-		grid->vec->sideDistY = (grid->posY - grid->mapY) * grid->vec->deltaDisY;
+		vec->stepY = -1;
+		vec->sideDistY = (grid->posY - grid->mapY) * vec->deltaDisY;
 	}
 	else
 	{
-		grid->vec->stepY = 1;
-		grid->vec->sideDistY = (grid->mapY + 1.0 - grid->posY) * grid->vec->deltaDisY;
+		vec->stepY = 1;
+		vec->sideDistY = (grid->mapY + 1.0 - grid->posY) * vec->deltaDisY;
 	}
 }
 
-void	find_wall(t_grid	*alg)
+int	find_wall(t_grid	*grid, t_vector	*vec)
 {
 	int	flag;
 
 	flag = 0;
-	while(alg->grid[alg->mapY][alg->mapX] != WALL)
+	while(grid->grid[grid->mapY][grid->mapX] != (int)WALL) // use [char*] or [int]
 	{
-		if (alg->vec->sideDistX < alg->vec->sideDistY)
+		if (vec->sideDistX < vec->sideDistY)
         {
-          alg->vec->sideDistX += alg->vec->deltaDisX;
-          alg->mapX += alg->vec->stepX;
+          vec->sideDistX += vec->deltaDisX;
+          grid->mapX += vec->stepX;
           flag = 0;
         }
         else
         {
-          alg->vec->sideDistY += alg->vec->deltaDisY;
-          alg->mapY += alg->vec->stepY;
+          vec->sideDistY += vec->deltaDisY;
+          grid->mapY += vec->stepY;
           flag = 1;
         }
 	}
+	return (flag); // if (flag)-> Y_side, else -> X_side
 }
 
-void	init_rays(t_grid	*alg)
+void	init_rays(t_grid	*grid, double x, t_vector	*vec)
 {
-	alg->vec->rayDirX = (alg->planeX + alg->dirX) * alg->cameraX;
-	alg->vec->rayDirY = (alg->planeY + alg->dirY) * alg->cameraY;
+	grid->cameraX = 2 * x / grid->screenWidth - 1;
+	vec->rayDirX = (grid->planeX + grid->dirX) * grid->cameraX;
+	vec->rayDirY = (grid->planeY + grid->dirY) * grid->cameraX;
 
 	// Travel distance from actual posX & poxY to next X-/Y-side
-	alg->vec->deltaDisX = abs(1 / alg->vec->rayDirX);
-	alg->vec->deltaDisY = abs(1 / alg->vec->rayDirY);
+	vec->deltaDisX = abs(1 / vec->rayDirX);
+	vec->deltaDisY = abs(1 / vec->rayDirY);
 }

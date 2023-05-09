@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   color_vectors.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/28 13:51:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/09 15:47:50 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/05/09 15:52:01 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-int	main(void)
+void	get_height(t_grid	*grid, t_vector	*vec, t_colors	*c)
 {
-	t_mlx		mlx;
-	t_grid		grid;
-
-	in_mlx(&mlx);
-	in_grid(&grid);
-	return (0);
+	vec->c->lineHeight = (int)(grid->screenHeight / vec->perpWallDist);
+	c->drawStart = -(c->lineHeight) / 2 + grid->screenHeight / 2;
+	if(c->drawStart < 0)
+		c->drawStart = 0;
+	c->drawEnd = c->lineHeight / 2 + grid->screenHeight / 2;
+	if(c->drawEnd >= grid->screenHeight)
+		c->drawEnd = grid->screenHeight - 1;
 }

@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/09 14:32:08 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/11 21:30:54 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,11 +15,12 @@ NAME = cub3D
 
 MLIB = libmlx.a
 
+# Libraries
 LIB_DIR = minilibx-linux/
+MINILIB_LIB = $(addprefix $LIB_DIR, libmlx_Linux.a)
 
 LIBFT_DIR = libft/
-
-LIBFT_LIB = libft.a
+LIBFT_LIB = $(addprefix $LIBFT_DIR, libft.a)
 
 C_DIR = .
 
@@ -31,34 +32,33 @@ RM_FLAGS = -rf
 
 UTILS2 = -g3 -v
 
-CC = cc
+CC = gcc
 
-UTILS_NAME = main.c mlx_init.c image.c
+SRCDIR = srcs/
+SRC = main.c mlx_init.c image.c \
+		vectors.c color_vectors.c \
+		ft_memset.c
+SRCS := $(addprefix $(SRCDIR), $(SRC))
 
-UTILS = $(addprefix srcs/, $(UTILS_NAME))
-
-OBJ = $(UTILS_NAME:.c=.o)
-
-OBJS = $(addprefix objs/, $(UTILS_NAME:.c=.o))
+OBJDIR = objs/
+OBJS = $(addprefix $(OBJ_DIR), $(SRC:.c=.o))
+OBJ_DIR = objs/
 
 FLAGS = -Wall -Wextra -Werror
 
+INCLUDES = -I includes/cub3D.h
+LIBX_IN = -Lmlx -lmlx -framework OpenGL -framework AppKit -lm
+
 all: $(NAME)
 
-objs/ :
-	mkdir objs/
-
-$(OBJS): $(UTILS) objs/
-	$(CC) $(FLAGS) -c $^
-	mv $(OBJ) objs/
+$(OBJDIR)%.o: $(SRCDIR)%.c
+	mkdir -p $(@D)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	make -C $(LIB_DIR) all
-	make -C $(LIBFT_DIR) all
-	$(MV) $(LIB_DIR)$(MLIB) $(C_DIR)
-	$(MV) $(LIBFT_DIR)$(LIBFT_LIB) $(C_DIR)
-	$(CC) $(FLAGS) $(LIBFT_LIB) $(MLIB) -Lmlx -lmlx -framework OpenGL -framework AppKit -lm $(OBJS) -o $(NAME)
-
+	make -C $(LIB_DIR)
+	make -C $(LIBFT_DIR)
+	$(CC) $(FLAGS) $^ $(LIBFT_LIB) $(MINILIB_LIB) $(LIBX_IN) -o $(NAME)
 clean:
 	make -C $(LIB_DIR) clean
 	make -C $(LIBFT_DIR) clean

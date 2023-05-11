@@ -6,13 +6,13 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:19:22 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/09 15:33:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/11 21:57:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-void	init_sides(t_grid	*grid, t_vector	*vec)
+void	step_comp_calc(t_grid	*grid, t_vector	*vec)
 {
 	if (vec->rayDirX < 0)
 	{
@@ -36,36 +36,34 @@ void	init_sides(t_grid	*grid, t_vector	*vec)
 	}
 }
 
-int	find_wall(t_grid	*grid, t_vector	*vec)
+int	get_wall(t_grid	*grid, t_vector	*vec)
 {
 	int	flag;
 
 	flag = 0;
-	while(grid->grid[grid->mapY][grid->mapX] != (int)WALL) // use [char*] or [int]
+	while (grid->grid[grid->mapY][grid->mapX] != (int)WALL)
 	{
 		if (vec->sideDistX < vec->sideDistY)
-        {
-          vec->sideDistX += vec->deltaDisX;
-          grid->mapX += vec->stepX;
-          flag = 0;
-        }
-        else
-        {
-          vec->sideDistY += vec->deltaDisY;
-          grid->mapY += vec->stepY;
-          flag = 1;
-        }
+		{
+			vec->sideDistX += vec->deltaDisX;
+			grid->mapX += vec->stepX;
+			flag = 0;
+		}
+		else
+		{
+			vec->sideDistY += vec->deltaDisY;
+			grid->mapY += vec->stepY;
+			flag = 1;
+		}
 	}
-	return (flag); // if (flag)-> Y_side, else -> X_side
+	return (flag);
 }
 
-void	init_rays(t_grid	*grid, double x, t_vector	*vec)
+void	init_ray_dis(t_grid	*grid, double x, t_vector	*vec)
 {
 	grid->cameraX = 2 * x / grid->screenWidth - 1;
 	vec->rayDirX = (grid->planeX + grid->dirX) * grid->cameraX;
 	vec->rayDirY = (grid->planeY + grid->dirY) * grid->cameraX;
-
-	// Travel distance from actual posX & poxY to next X-/Y-side
 	vec->deltaDisX = abs(1 / vec->rayDirX);
 	vec->deltaDisY = abs(1 / vec->rayDirY);
 }

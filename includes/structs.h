@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/09 15:51:42 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/11 21:34:37 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ typedef	struct s_colors
 
 	int	drawStart;
 	int	drawEnd;
+
+	int	color;
 }	t_colors;
 
 
@@ -41,6 +43,7 @@ typedef	struct s_vector
 	int	stepY;
 
 	double	perpWallDist; // The closest ray length from camera plane to wall
+	int		axe;
 	t_colors	*c;
 }	t_vector;
 

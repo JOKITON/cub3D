@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/11 21:30:54 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/11 22:02:48 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,12 +62,10 @@ $(NAME): $(OBJS)
 clean:
 	make -C $(LIB_DIR) clean
 	make -C $(LIBFT_DIR) clean
-	$(RM) $(RM_FLAGS) $(MLIB)
-	$(RM) $(RM_FLAGS) $(LIBFT_LIB)
-	$(RM) $(RM_FLAGS) $(OBJS)
 	$(RM) $(RM_FLAGS) objs/
 
 fclean: clean
+	make -C $(LIBFT_DIR) fclean
 	$(RM) $(RM_FLAGS) $(NAME)
 
 re: fclean all

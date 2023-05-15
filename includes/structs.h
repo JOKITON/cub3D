@@ -6,73 +6,68 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/11 21:34:37 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:38:18 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_H
 # define STRUCTS_H
 
-typedef	struct s_colors
+typedef struct s_colors
 {
-	int	lineHeight;
+	int	line_height;
 
-	int	drawStart;
-	int	drawEnd;
+	int	color_bstart;
+	int	color_bend;
 
 	int	color;
 }	t_colors;
 
-
-typedef	struct s_vector
+typedef struct s_vector
 {
-	// Direction vector for Camera Plane
-	double	rayDirX;
-	double	rayDirY;
+	double		raydir_x;
+	double		raydir_y;
 
-	// Starting side line distance for a non-decimal X/Y value
-	double	sideDistX;
-	double	sideDistY;
+	double		sidedist_x;
+	double		sidedist_y;
 
-	// Common line distance between one value of X & Y
-	double	deltaDisX;
-	double	deltaDisY;
+	double		deltadist_x;
+	double		deltadist_y;
 
-	// Jump Direction on Start
-	int	stepX;
-	int	stepY;
+	int			step_x;
+	int			step_y;
 
-	double	perpWallDist; // The closest ray length from camera plane to wall
-	int		axe;
+	double		short_wall_dist;
+	int			axe;
 	t_colors	*c;
 }	t_vector;
 
 typedef struct s_grid
 {
-	char	**grid;
+	char		**grid;
 
-	int	mapY; // 2d grid
-	int	mapX;
+	int			map_y;
+	int			map_x;
 
-	int	screenHeight; // minilibX-image
-	int	screenWidth;
+	int			screen_height;
+	int			screen_width;
 
-	int	posX; // starting pos of character & Pos Vector
-	int	posY;
+	int			pos_x;
+	int			pos_y;
 
-	double	dirX; // initial pos of Direction Vector
-	double	dirY;
+	double		dir_x;
+	double		dir_y;
 
-	double	planeX; // Screen position
-	double	planeY;
+	double		plane_x;
+	double		plane_y;
 
-	double	cameraX;
-	double	cameraY;
+	double		camera_x;
+	double		camera_y;
 
 	t_vector	*vec;
-} t_grid;
+}	t_grid;
 
-typedef	struct s_mlx
+typedef struct s_mlx
 {
 	void	*init;
 	void	*img_win;
@@ -83,6 +78,6 @@ typedef	struct s_mlx
 	int		*endian;
 
 	t_grid	*grid;
-} t_mlx;
+}	t_mlx;
 
 #endif

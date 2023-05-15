@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/11 21:54:50 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:23:00 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <unistd.h>
 # include <string.h>
 
-#define WALL 1
-#define SPACE 0
+# define WALL 1
+# define SPACE 0
 
 void	in_mlx(t_mlx	*mlx);
 void	in_grid(t_grid	*grid);

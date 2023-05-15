@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:19:22 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/11 21:57:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:38:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 void	step_comp_calc(t_grid	*grid, t_vector	*vec)
 {
-	if (vec->rayDirX < 0)
+	if (vec->raydir_x < 0)
 	{
-		vec->stepX = -1;
-		vec->sideDistX = (grid->posX - grid->mapX) * vec->deltaDisX;
+		vec->step_x = -1;
+		vec->sidedist_x = (grid->pos_x - grid->map_x) * vec->deltadist_x;
 	}
 	else
 	{
-		vec->stepX = 1;
-		vec->sideDistX = (grid->mapX + 1.0 - grid->posX) * vec->deltaDisX;
+		vec->step_x = 1;
+		vec->sidedist_x = (grid->map_x + 1.0 - grid->pos_x) * vec->deltadist_x;
 	}
-	if (vec->rayDirY < 0)
+	if (vec->raydir_y < 0)
 	{
-		vec->stepY = -1;
-		vec->sideDistY = (grid->posY - grid->mapY) * vec->deltaDisY;
+		vec->step_y = -1;
+		vec->sidedist_y = (grid->pos_y - grid->map_y) * vec->deltadist_y;
 	}
 	else
 	{
-		vec->stepY = 1;
-		vec->sideDistY = (grid->mapY + 1.0 - grid->posY) * vec->deltaDisY;
+		vec->step_y = 1;
+		vec->sidedist_y = (grid->map_y + 1.0 - grid->pos_y) * vec->deltadist_y;
 	}
 }
 
@@ -41,18 +41,18 @@ int	get_wall(t_grid	*grid, t_vector	*vec)
 	int	flag;
 
 	flag = 0;
-	while (grid->grid[grid->mapY][grid->mapX] != (int)WALL)
+	while (grid->grid[grid->map_y][grid->map_x] != (int)WALL)
 	{
-		if (vec->sideDistX < vec->sideDistY)
+		if (vec->sidedist_x < vec->sidedist_y)
 		{
-			vec->sideDistX += vec->deltaDisX;
-			grid->mapX += vec->stepX;
+			vec->sidedist_x += vec->deltadist_x;
+			grid->map_x += vec->step_x;
 			flag = 0;
 		}
 		else
 		{
-			vec->sideDistY += vec->deltaDisY;
-			grid->mapY += vec->stepY;
+			vec->sidedist_y += vec->deltadist_y;
+			grid->map_y += vec->step_y;
 			flag = 1;
 		}
 	}
@@ -61,9 +61,9 @@ int	get_wall(t_grid	*grid, t_vector	*vec)
 
 void	init_ray_dis(t_grid	*grid, double x, t_vector	*vec)
 {
-	grid->cameraX = 2 * x / grid->screenWidth - 1;
-	vec->rayDirX = (grid->planeX + grid->dirX) * grid->cameraX;
-	vec->rayDirY = (grid->planeY + grid->dirY) * grid->cameraX;
-	vec->deltaDisX = abs(1 / vec->rayDirX);
-	vec->deltaDisY = abs(1 / vec->rayDirY);
+	grid->camera_x = 2 * x / grid->screen_width - 1;
+	vec->raydir_x = (grid->plane_x + grid->dir_x) * grid->camera_x;
+	vec->raydir_y = (grid->plane_y + grid->dir_y) * grid->camera_x;
+	vec->deltadist_x = abs(1 / vec->raydir_x);
+	vec->deltadist_y = abs(1 / vec->raydir_y);
 }

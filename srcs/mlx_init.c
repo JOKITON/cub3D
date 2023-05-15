@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/11 21:59:12 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/15 16:38:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	in_grid(t_grid	*grid)
 	ft_memset(&vec, 0, sizeof(vec));
 	ft_memset(&colors, 0, sizeof(colors));
 	grid->vec = vec;
-	grid->screenHeight = 1920;
-	grid->screenWidth = 1080;
-	grid->dirX = (double)-1;
-	grid->cameraY = (double)0.66;
+	grid->screen_height = 1920;
+	grid->screen_width = 1080;
+	grid->dir_x = (double)-1;
+	grid->camera_y = (double)0.66;
 }
 
 void	in_mlx(t_mlx	*mlx)

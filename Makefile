@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/11 22:02:48 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/15 16:21:14 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,10 @@ MLIB = libmlx.a
 
 # Libraries
 LIB_DIR = minilibx-linux/
-MINILIB_LIB = $(addprefix $LIB_DIR, libmlx_Linux.a)
+MINILIB_LIB = $(addprefix $(LIB_DIR), libmlx_Linux.a)
 
 LIBFT_DIR = libft/
-LIBFT_LIB = $(addprefix $LIBFT_DIR, libft.a)
+LIBFT_LIB = $(addprefix $(LIBFT_DIR), libft.a)
 
 C_DIR = .
 
@@ -58,7 +58,7 @@ $(OBJDIR)%.o: $(SRCDIR)%.c
 $(NAME): $(OBJS)
 	make -C $(LIB_DIR)
 	make -C $(LIBFT_DIR)
-	$(CC) $(FLAGS) $^ $(LIBFT_LIB) $(MINILIB_LIB) $(LIBX_IN) -o $(NAME)
+	$(CC) $(FLAGS) $^ $(LIBFT_LIB) $(MINILIB_LIB) -o $(NAME)
 clean:
 	make -C $(LIB_DIR) clean
 	make -C $(LIBFT_DIR) clean

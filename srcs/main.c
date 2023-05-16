@@ -6,18 +6,18 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:51:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/09 15:47:50 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:46:13 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3D.h"
 
-int	main(void)
+int	main(int ac, char **ar)
 {
 	t_mlx		mlx;
-	t_grid		grid;
+	t_map		map;
 
-	in_mlx(&mlx);
-	in_grid(&grid);
+	ft_valid(&map, ac, ar);
+	in_structs(&mlx, &map);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 11:04:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:42:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ typedef struct s_mlx
 	int		*endian;
 
 	t_grid	*grid;
+	t_map	*map;
 }	t_mlx;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:54:13 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:45:55 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,25 @@ void	in_grid(t_grid	*grid)
 	grid->camera_y = (double)0.66;
 }
 
-void	in_mlx(t_mlx	*mlx)
+void	in_mlx(t_mlx *mlx)
+{
+	mlx_init(mlx->init);
+	mlx_new_window(mlx->init, 1920, 1080, "cub3D");
+	mlx->img_win = mlx_new_image(mlx->init, 1920, 1080);
+	mlx->img_addr = mlx_get_data_addr(mlx->init,
+			mlx->bits_per_pixel, mlx->line_length, mlx->endian);
+}
+
+void	in_structs(t_mlx *mlx, t_map	*map)
 {
 	t_grid	*grid;
 
-	mlx_init(&mlx->init);
-	mlx_new_window(&mlx->init, 1920, 1080, "cub3D");
-	mlx->img_win = mlx_new_image(&mlx->init, 1920, 1080);
-	mlx->img_addr = mlx_get_data_addr(&mlx->init,
-			mlx->bits_per_pixel, mlx->line_length, mlx->endian);
+	mlx = malloc(sizeof(mlx));
+	ft_memset(mlx, 0, sizeof(mlx));
+	in_mlx(mlx);
 	grid = malloc(sizeof(grid));
 	ft_memset(&grid, 0, sizeof(grid));
 	mlx->grid = grid;
+	in_grid(mlx->grid);
+	mlx->map = map;
 }

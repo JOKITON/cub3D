@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:20:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:46:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 # define CUB3D_H
 
 # include "../minilibx-mac/mlx.h"
+# include "../minilibx-mac/mlx_new_window.h"
+# include "../minilibx-mac/mlx_int.h"
+# include "../minilibx-mac/mlx_opengl.h"
 # include "structs_image.h"
 # include "structs_map.h"
 
@@ -29,8 +32,9 @@
 # define SPACE 0
 
 // INIT_FUNCTIONS
-void	in_mlx(t_mlx	*mlx);
 void	in_grid(t_grid	*grid);
+void	in_mlx(t_mlx *mlx);
+void	in_structs(t_mlx *mlx, t_map	*map);
 void	init_image(t_mlx	*mlx, t_grid	*grid);
 
 // VECTOR_FUNCTIONS

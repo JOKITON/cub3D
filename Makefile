@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/16 10:26:43 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/16 10:31:25 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ RM = rm
 
 RM_FLAGS = -rf
 
-FSANITIZE = -g3 -v -fsanitize=address
+FSANITIZE = -g3 -v
 
 #INCLUDES
 INCLUDES = -I includes/

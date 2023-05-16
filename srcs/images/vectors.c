@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:19:22 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:54:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:55:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,13 @@ void	step_comp_calc(t_grid	*grid, t_vector	*vec)
 	}
 }
 
-int	get_wall(t_grid	*grid, t_vector	*vec)
+int	get_wall(t_map *map, t_grid	*grid, t_vector	*vec)
 {
 	int	flag;
 
 	flag = 0;
-	while (grid->grid[grid->map_y][grid->map_x] != (int)WALL)
+	while (map->map[grid->map_y] && map->map[grid->map_y][grid->map_x]
+		&& map->map[grid->map_y][grid->map_x] != '1')
 	{
 		if (vec->sidedist_x < vec->sidedist_y)
 		{

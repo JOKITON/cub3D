@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:46:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:56:20 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	init_image(t_mlx	*mlx, t_grid	*grid);
 // VECTOR_FUNCTIONS
 void	init_ray_dis(t_grid	*grid, double x, t_vector	*vec);
 void	step_comp_calc(t_grid	*grid, t_vector	*vec);
-int		get_wall(t_grid	*grid, t_vector	*vec);
+int		get_wall(t_map *map, t_grid	*grid, t_vector	*vec);
 void	get_height(t_grid	*grid, t_vector	*vec, t_colors	*c);
 void	draw_ver_line(t_mlx	*mlx, t_grid	*grid, t_colors	*c);
 

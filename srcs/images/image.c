@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:54:07 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:56:05 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	crt_image(double x, t_mlx *mlx, t_grid *grid)
 	grid->plane_y = 0.66;
 	init_ray_dis(grid, x, grid->vec);
 	step_comp_calc(grid, grid->vec);
-	grid->vec->axe = get_wall(grid, grid->vec);
+	grid->vec->axe = get_wall(mlx->map, grid, grid->vec);
 	if (!grid->vec->axe)
 		grid->vec->short_wall_dist
 			= (grid->vec->sidedist_x - grid->vec->deltadist_x);

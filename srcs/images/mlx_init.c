@@ -6,11 +6,35 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:51:37 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:17:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+void	in_dir(t_grid *grid, t_map *map)
+{
+	if (map->typ == 'N')
+	{
+		grid->dir_x = (double)1;
+		grid->camera_y = (double)0.66;
+	}
+	else if (map->typ == 'W')
+	{
+		grid->dir_x = (double)-1;
+		grid->camera_y = (double)0.66;
+	}
+	else if (map->typ == 'E')
+	{
+		grid->dir_x = (double)1;
+		grid->camera_y = (double)-0.66;
+	}
+	else if (map->typ == 'N')
+	{
+		grid->dir_x = (double)-1;
+		grid->camera_y = (double)-0.66;
+	}
+}
 
 void	in_grid(t_grid	*grid, t_map *map)
 {
@@ -24,8 +48,7 @@ void	in_grid(t_grid	*grid, t_map *map)
 	ft_memset(&colors, 0, sizeof(colors));
 	grid->screen_height = 1920;
 	grid->screen_width = 1080;
-	grid->dir_x = (double)-1;
-	grid->camera_y = (double)0.66;
+	in_dir(grid, map);
 	grid->pos_x = map->x;
 	grid->pos_y = map->y;
 }

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:56:05 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 11:19:47 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	crt_image(double x, t_mlx *mlx, t_grid *grid)
 			= (grid->vec->sidedist_y - grid->vec->deltadist_y);
 	get_height(grid, grid->vec, grid->vec->c);
 	draw_ver_line(mlx, grid, grid->vec->c);
-	ft_memset(mlx, 0, sizeof(mlx));
 	return (pixel);
 }
 

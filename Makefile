@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/16 10:13:57 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/16 10:21:21 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,7 +70,9 @@ $(OBJ_DIR)%.o: $(SRCDIR)%.c
 
 $(NAME): $(OBJS)
 	@make -C $(MINILIB_MAC_DIR)
-	$(CC) $(FLAGS) $(MINILIB_MAC) $(LIBX_IN) $^ -o $(NAME)
+	$(CC) $(FLAGS) $^ $(MINILIB_MAC) $(LIBX_IN) -o $(NAME)
+#	$(CC) $(FLAGS) $(MINILIB_MAC) $^ $(LIBX_IN) -o $(NAME)
+#	$(CC) $(FLAGS) $(LIBX_IN) $^ $(MINILIB_MAC) -o $(NAME)
 
 clean:
 	make -C $(MINILIB_MAC_DIR) clean

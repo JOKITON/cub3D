@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/16 10:00:45 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/16 10:13:57 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,6 @@ MINILIB_MAC_DIR = minilibx-mac/
 MINILIB_MAC = $(addprefix $(MINILIB_MAC_DIR), $(MLIB))
 
 LIBFT_DIR = libft/
-LIBFT_LIB = $(addprefix $(LIBFT_DIR), libft.a)
 
 #SRCS
 SOURCE_TREE = main
@@ -61,7 +60,7 @@ FSANITIZE = -g3 -v -fsanitize=address
 
 #INCLUDES
 INCLUDES = -I includes/
-LIBX_IN = -Lmlx -lmlx -framework OpenGL -framework AppKit -lm
+LIBX_IN = -lmlx -framework OpenGL -framework AppKit -lm
 
 all: $(NAME)
 
@@ -71,16 +70,13 @@ $(OBJ_DIR)%.o: $(SRCDIR)%.c
 
 $(NAME): $(OBJS)
 	@make -C $(MINILIB_MAC_DIR)
-	@make -C $(LIBFT_DIR)
-	$(CC) $(FLAGS) $^ $(LIBFT_DIR) $(MINILIB_MAC) $(LIBX_IN) -o $(NAME)
+	$(CC) $(FLAGS) $(MINILIB_MAC) $(LIBX_IN) $^ -o $(NAME)
 
 clean:
 	make -C $(MINILIB_MAC_DIR) clean
-	make -C $(LIBFT_DIR) clean
 	$(RM) $(RM_FLAGS) objs/
 
 fclean: clean
-	make -C $(LIBFT_DIR) fclean
 	$(RM) $(RM_FLAGS) $(NAME)
 
 re: fclean all

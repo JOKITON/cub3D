@@ -6,11 +6,11 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:19:22 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/15 16:38:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:54:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void	step_comp_calc(t_grid	*grid, t_vector	*vec)
 {

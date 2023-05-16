@@ -6,11 +6,11 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/15 16:38:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:54:07 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 int	crt_image(double x, t_mlx *mlx, t_grid *grid)
 {

@@ -6,11 +6,11 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/15 16:38:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/16 10:54:02 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3D.h"
+#include "../../includes/cub3D.h"
 
 void	draw_ver_line(t_mlx	*mlx, t_grid	*grid, t_colors	*c)
 {

@@ -6,22 +6,26 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/16 11:11:16 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/16 11:20:39 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 
 NAME = cub3D
 
-MLIB = libmlx.a
 
 CC = gcc
 
 FLAGS = -Wall -Wextra -Werror
 
 # Libraries
-LIB_DIR = minilibx-linux/
-MINILIB_LIB = $(addprefix $(LIB_DIR), libmlx_Linux.a)
+MLIB = libmlx.a
+
+MINILIB_LINUX_DIR = minilibx-linux/
+MINILIB_LINUX = $(addprefix $(LIB_DIR), libmlx_Linux.a)
+
+MINILIB_MAC_DIR = minilibx-mac/
+MINILIB_MAC = $(addprefix $(LIB_DIR), $(MLIB))
 
 LIBFT_DIR = libft/
 LIBFT_LIB = $(addprefix $(LIBFT_DIR), libft.a)
@@ -56,7 +60,7 @@ RM = rm
 
 RM_FLAGS = -rf
 
-UTILS = -g3 -v -fsanitize=address
+FSANITIZE = -g3 -v -fsanitize=address
 
 #INCLUDES
 INCLUDES = -I includes/
@@ -66,14 +70,16 @@ all: $(NAME)
 
 $(OBJ_DIR)%.o: $(SRCDIR)%.c
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(UTILS) $(INCLUDES) -c $< -o $@
+	$(CC) $(CFLAGS) $(FSANITIZE) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@make -C $(LIB_DIR)
+	@make -C $(MINILIB_MAC_DIR)
 	@make -C $(LIBFT_DIR)
-	$(CC) $(FLAGS) $^ $(LIBFT_LIB) $(MINILIB_LIB) $(LIBX_IN) -o $(NAME)
+#	$(CC) $(FLAGS) $^ $(LIBFT_LIB) $(MINILIB_LINUX) $(LIBX_IN) -o $(NAME)
+	$(CC) $(FLAGS) $^ $(LIBFT_DIR) $(MINILIB_MAC) $(LIBX_IN) -o $(NAME)
+
 clean:
-	make -C $(LIB_DIR) clean
+	make -C $(MINILIB_MAC_DIR) clean
 	make -C $(LIBFT_DIR) clean
 	$(RM) $(RM_FLAGS) objs/
 

@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/16 10:21:21 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/16 10:26:43 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ MINILIB_MAC_DIR = minilibx-mac/
 MINILIB_MAC = $(addprefix $(MINILIB_MAC_DIR), $(MLIB))
 
 LIBFT_DIR = libft/
+LIBFT_LIB = $(addprefix $(LIBFT_DIR), libft.a)
 
 #SRCS
 SOURCE_TREE = main
@@ -60,7 +61,7 @@ FSANITIZE = -g3 -v -fsanitize=address
 
 #INCLUDES
 INCLUDES = -I includes/
-LIBX_IN = -lmlx -framework OpenGL -framework AppKit -lm
+FLAGS_LIBX = -L . -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
@@ -70,9 +71,7 @@ $(OBJ_DIR)%.o: $(SRCDIR)%.c
 
 $(NAME): $(OBJS)
 	@make -C $(MINILIB_MAC_DIR)
-	$(CC) $(FLAGS) $^ $(MINILIB_MAC) $(LIBX_IN) -o $(NAME)
-#	$(CC) $(FLAGS) $(MINILIB_MAC) $^ $(LIBX_IN) -o $(NAME)
-#	$(CC) $(FLAGS) $(LIBX_IN) $^ $(MINILIB_MAC) -o $(NAME)
+	$(CC) $(CFLAGS) $(MINILIB_MAC) $(FLAGS_LIBX) -o $(NAME) $(OBJS)
 
 clean:
 	make -C $(MINILIB_MAC_DIR) clean

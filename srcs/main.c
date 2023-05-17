@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:51:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 11:20:06 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:09:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,13 @@
 
 int	main(int ac, char **ar)
 {
-	t_mlx		mlx;
+	t_in		in;
 	t_map		map;
 
 	ft_valid(&map, ac, ar);
-	in_structs(&mlx, &map);
-	init_image(&mlx, mlx.grid);
-	free(&mlx);
+	in_structs(&in, &map);
+	init_image(&in, in.grid);
+	while (1)
+		;
 	return (0);
 }

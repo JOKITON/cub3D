@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:56:20 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:14:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,17 +32,16 @@
 # define SPACE 0
 
 // INIT_FUNCTIONS
-void	in_grid(t_grid	*grid);
-void	in_mlx(t_mlx *mlx);
-void	in_structs(t_mlx *mlx, t_map	*map);
-void	init_image(t_mlx	*mlx, t_grid	*grid);
+void	in_grid(t_grid	*grid, t_map *map);
+void	in_mlx(t_in *in);
+void	in_structs(t_in *in, t_map	*map);
 
 // VECTOR_FUNCTIONS
 void	init_ray_dis(t_grid	*grid, double x, t_vector	*vec);
 void	step_comp_calc(t_grid	*grid, t_vector	*vec);
 int		get_wall(t_map *map, t_grid	*grid, t_vector	*vec);
 void	get_height(t_grid	*grid, t_vector	*vec, t_colors	*c);
-void	draw_ver_line(t_mlx	*mlx, t_grid	*grid, t_colors	*c);
+void	draw_ver_line(t_in	*in, t_grid	*grid, t_colors	*c);
 
 // LIBFT
 void	*ft_memset(void *b, int c, size_t len);

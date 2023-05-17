@@ -6,12 +6,14 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 11:20:51 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:10:09 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCTS_IMAGE_H
 # define STRUCTS_IMAGE_H
+
+# include "structs_map.h"
 
 typedef struct s_colors
 {
@@ -74,9 +76,14 @@ typedef struct s_mlx
 	int		*bits_per_pixel;
 	int		*line_length;
 	int		*endian;
+}	t_mlx;
+
+typedef struct s_in
+{
 
 	t_grid	*grid;
 	t_map	*map;
-}	t_mlx;
+	t_mlx	*mlx;
+}	t_in;
 
 #endif

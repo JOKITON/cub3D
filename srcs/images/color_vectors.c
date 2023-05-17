@@ -6,13 +6,13 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/16 10:54:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/17 11:16:44 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-void	draw_ver_line(t_mlx	*mlx, t_grid	*grid, t_colors	*c)
+void	draw_ver_line(t_in	*in, t_grid	*grid, t_colors	*c)
 {
 	int	y;
 	int	x;
@@ -22,11 +22,11 @@ void	draw_ver_line(t_mlx	*mlx, t_grid	*grid, t_colors	*c)
 	while (y++ <= grid->screen_height)
 	{
 		if (y <= c->color_bstart)
-			mlx->img_addr[(y * x) + x] = 0x00010000;
+			in->mlx->img_addr[(y * x) + x] = 0x00010000;
 		else if (y > c->color_bstart && y < c->color_bend)
-			mlx->img_addr[(y * x) + x] = c->color;
+			in->mlx->img_addr[(y * x) + x] = c->color;
 		else if (y >= c->color_bend)
-			mlx->img_addr[(y * x) + x] = 0x00625eef;
+			in->mlx->img_addr[(y * x) + x] = 0x00625eef;
 	}
 }
 

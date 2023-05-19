@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/17 11:10:09 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/19 16:54:40 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ typedef struct s_grid
 	int			screen_height;
 	int			screen_width;
 
-	int			pos_x;
-	int			pos_y;
+	double		pos_x;
+	double		pos_y;
 
 	double		dir_x;
 	double		dir_y;
@@ -67,23 +67,13 @@ typedef struct s_grid
 	t_vector	*vec;
 }	t_grid;
 
-typedef struct s_mlx
-{
-	void	*init;
-	void	*img_win;
-
-	char	*img_addr;
-	int		*bits_per_pixel;
-	int		*line_length;
-	int		*endian;
-}	t_mlx;
-
 typedef struct s_in
 {
 
-	t_grid	*grid;
-	t_map	*map;
-	t_mlx	*mlx;
+	t_grid		*grid;
+	t_map		*map;
+	mlx_t		*mlx_t;
+	mlx_image_t	*img;
 }	t_in;
 
 #endif

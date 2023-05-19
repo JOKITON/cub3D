@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/16 10:31:25 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/19 19:07:40 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,12 +16,12 @@ NAME = cub3D
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+#FLAGS = -Wall -Wextra -Werror
 
 # Libraries
 MLIB = libmlx.a
 
-MINILIB_MAC_DIR = minilibx-mac/
+MINILIB_MAC_DIR = MLX42/
 MINILIB_MAC = $(addprefix $(MINILIB_MAC_DIR), $(MLIB))
 
 LIBFT_DIR = libft/
@@ -60,21 +60,21 @@ RM_FLAGS = -rf
 FSANITIZE = -g3 -v
 
 #INCLUDES
-INCLUDES = -I includes/
+LIBMLX	:= ./lib/MLX42
+INCLUDES := -I ./include -I MLX42/include
+LIBS	:= MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm
 FLAGS_LIBX = -L . -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)
 
 $(OBJ_DIR)%.o: $(SRCDIR)%.c
 	mkdir -p $(@D)
-	$(CC) $(CFLAGS) $(FSANITIZE) $(INCLUDES) -c $< -o $@
+	$(CC) $(FLAGS) $(FSANITIZE) $(INCLUDES) -c $< -o $@
 
 $(NAME): $(OBJS)
-	@make -C $(MINILIB_MAC_DIR)
-	$(CC) $(CFLAGS) $(MINILIB_MAC) $(FLAGS_LIBX) -o $(NAME) $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) $(LIBS) $(INCLUDES) -o $(NAME)
 
 clean:
-	make -C $(MINILIB_MAC_DIR) clean
 	$(RM) $(RM_FLAGS) objs/
 
 fclean: clean

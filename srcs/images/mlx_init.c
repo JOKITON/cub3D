@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/17 11:17:11 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/19 19:05:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,66 +14,66 @@
 
 void	in_dir(t_grid *grid, t_map *map)
 {
+	printf("Player Dir -> [%c]\n", map->typ);
 	if (map->typ == 'N')
 	{
-		grid->dir_x = (double)1;
-		grid->camera_y = (double)0.66;
+		grid->dir_x = (double)0;
+		grid->dir_y = (double)1;
+		grid->plane_y = (double)0;
+		grid->plane_x = (double)0.66;
 	}
 	else if (map->typ == 'W')
 	{
 		grid->dir_x = (double)-1;
-		grid->camera_y = (double)0.66;
+		grid->dir_y = (double)0;
+		grid->plane_y = (double)-0.66;
+		grid->plane_x = (double)0;
 	}
 	else if (map->typ == 'E')
 	{
 		grid->dir_x = (double)1;
-		grid->camera_y = (double)-0.66;
+		grid->dir_y = (double)0;
+		grid->plane_y = (double)0.66;
+		grid->plane_x = (double)0;
 	}
-	else if (map->typ == 'N')
+	else if (map->typ == 'S')
 	{
-		grid->dir_x = (double)-1;
-		grid->camera_y = (double)-0.66;
+		grid->dir_x = (double)0;
+		grid->dir_y = (double)-1;
+		grid->plane_y = (double)0;
+		grid->plane_x = (double)-0.66;
 	}
 }
 
 void	in_grid(t_grid	*grid, t_map *map)
 {
-	t_vector	*vec;
-	t_colors	*colors;
-
-	vec = malloc(sizeof(t_vector));
-	ft_memset(&vec, 0, sizeof(t_vector));
-	grid->vec = vec;
-	colors = malloc(sizeof(t_colors));
-	ft_memset(&colors, 0, sizeof(t_colors));
-	grid->screen_height = 1920;
-	grid->screen_width = 1080;
+	grid->vec = malloc(sizeof(t_vector));
+	ft_memset(grid->vec, 0, sizeof(t_vector));
+	grid->vec->c = malloc(sizeof(t_colors));
+	ft_memset(grid->vec->c, 0, sizeof(t_colors));
+	grid->screen_height = 1080;
+	grid->screen_width = 1920;
 	in_dir(grid, map);
 	grid->pos_x = map->x;
 	grid->pos_y = map->y;
+	/* printf("grid->posX -> [%f]\n", grid->pos_x);
+	printf("grid->posY -> [%f]\n", grid->pos_y); */
 }
 
-void	in_mlx(t_mlx *mlx)
+void	in_mlx(t_in	*in)
 {
-	mlx = malloc(sizeof(t_mlx));
-	ft_memset(&mlx, 0, sizeof(t_mlx));
-	mlx_init(mlx->init);
-	mlx_new_window(mlx->init, 1920, 1080, "cub3D");
-	mlx->img_win = mlx_new_image(mlx->init, 1920, 1080);
-	mlx->img_addr = mlx_get_data_addr(mlx->init,
-			mlx->bits_per_pixel, mlx->line_length, mlx->endian);
+	in->mlx_t = mlx_init(1920, 1080, "cub3D", true);
+	in->img = mlx_new_image(in->mlx_t, 1920, 1080);
 }
 
-void	in_structs(t_in *in, t_map	*map)
+void	in_structs(t_in *in)
 {
-	t_grid	*grid;
+	in->mlx_t = malloc(sizeof(mlx_t));
+	ft_memset(in->mlx_t, 0, sizeof(mlx_t));
+	in->img = malloc(sizeof(mlx_image_t));
+	in_mlx(in);
 
-	in = malloc(sizeof(t_in));
-	ft_memset(in, 0, sizeof(t_in));
-	in_mlx(in->mlx);
-	grid = malloc(sizeof(grid));
-	ft_memset(&grid, 0, sizeof(grid));
-	in->grid = grid;
-	in->map = map;
-	//in_grid(in->grid, in->map);
+	in->grid = malloc(sizeof(t_grid));
+	ft_memset(in->grid, 0, sizeof(t_grid));
+	in_grid(in->grid, in->map);
 }

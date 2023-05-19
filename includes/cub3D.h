@@ -6,17 +6,14 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/17 11:14:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/19 12:49:32 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CUB3D_H
 # define CUB3D_H
 
-# include "../minilibx-mac/mlx.h"
-# include "../minilibx-mac/mlx_new_window.h"
-# include "../minilibx-mac/mlx_int.h"
-# include "../minilibx-mac/mlx_opengl.h"
+# include "../MLX42/include/MLX42/MLX42.h"
 # include "structs_image.h"
 # include "structs_map.h"
 
@@ -33,15 +30,15 @@
 
 // INIT_FUNCTIONS
 void	in_grid(t_grid	*grid, t_map *map);
-void	in_mlx(t_in *in);
-void	in_structs(t_in *in, t_map	*map);
+void	in_structs(t_in *in);
+void	init_image(t_in	*in);
 
 // VECTOR_FUNCTIONS
 void	init_ray_dis(t_grid	*grid, double x, t_vector	*vec);
 void	step_comp_calc(t_grid	*grid, t_vector	*vec);
 int		get_wall(t_map *map, t_grid	*grid, t_vector	*vec);
 void	get_height(t_grid	*grid, t_vector	*vec, t_colors	*c);
-void	draw_ver_line(t_in	*in, t_grid	*grid, t_colors	*c);
+void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c);
 
 // LIBFT
 void	*ft_memset(void *b, int c, size_t len);
@@ -70,7 +67,7 @@ void	ft_get_params_map(t_map *map);
 void	ft_get_file(t_map *map, char *file);
 void	ft_first_line(char **str, int pos, int len);
 void	ft_exit_free_print(char *str, t_map *map);
-void	ft_valid(t_map *map, int argc, char **arg);
+t_map	*ft_valid(t_map *map, int argc, char **arg);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
 void	ft_put_stars(char **str, int j, int y, int len);
 void	ft_check_walls(t_map *map, char **copy, int x, int y);

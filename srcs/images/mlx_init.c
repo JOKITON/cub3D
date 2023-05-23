@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/19 19:05:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/23 11:13:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	in_dir(t_grid *grid, t_map *map)
 {
-	printf("Player Dir -> [%c]\n", map->typ);
 	if (map->typ == 'N')
 	{
 		grid->dir_x = (double)0;
@@ -54,8 +53,10 @@ void	in_grid(t_grid	*grid, t_map *map)
 	grid->screen_height = 1080;
 	grid->screen_width = 1920;
 	in_dir(grid, map);
-	grid->pos_x = map->x;
-	grid->pos_y = map->y;
+	grid->pos_x = map->x - 1;
+	grid->pos_y = map->y - 1;
+	map->x -= 1;
+	map->y -= 1;
 	/* printf("grid->posX -> [%f]\n", grid->pos_x);
 	printf("grid->posY -> [%f]\n", grid->pos_y); */
 }

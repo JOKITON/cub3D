@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/23 14:24:09 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:03:06 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,30 +16,22 @@ void	in_dir(t_grid *grid, t_map *map)
 {
 	if (map->typ == 'N')
 	{
-		grid->dir_x = (double)0;
 		grid->dir_y = (double)1;
-		grid->plane_y = (double)0;
 		grid->plane_x = (double)0.66;
 	}
 	else if (map->typ == 'W')
 	{
 		grid->dir_x = (double)-1;
-		grid->dir_y = (double)0;
 		grid->plane_y = (double)-0.5;
-		grid->plane_x = (double)0;
 	}
 	else if (map->typ == 'E')
 	{
 		grid->dir_x = (double)1;
-		grid->dir_y = (double)0;
 		grid->plane_y = (double)0.66;
-		grid->plane_x = (double)0;
 	}
 	else if (map->typ == 'S')
 	{
-		grid->dir_x = (double)0;
 		grid->dir_y = (double)-1;
-		grid->plane_y = (double)0;
 		grid->plane_x = (double)-0.66;
 	}
 }
@@ -57,8 +49,6 @@ void	in_grid(t_grid	*grid, t_map *map)
 	grid->pos_y = map->y - 1;
 	map->x -= 1;
 	map->y -= 1;
-	/* printf("grid->posX -> [%f]\n", grid->pos_x);
-	printf("grid->posY -> [%f]\n", grid->pos_y); */
 }
 
 void	in_mlx(t_in	*in)
@@ -73,7 +63,6 @@ void	in_structs(t_in *in)
 	ft_memset(in->mlx_t, 0, sizeof(mlx_t));
 	in->img = malloc(sizeof(mlx_image_t));
 	in_mlx(in);
-
 	in->grid = malloc(sizeof(t_grid));
 	ft_memset(in->grid, 0, sizeof(t_grid));
 	in_grid(in->grid, in->map);

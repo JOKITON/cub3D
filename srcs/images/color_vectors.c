@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/23 14:22:05 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:03:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,4 @@ void	get_height(t_grid	*grid, t_vector	*vec, t_colors	*c)
 		c->color = 0x00FF0000;
 	else
 		c->color = 0x000000FF;
-/* 	printf("colorStart -> [%d]\n", c->color_bstart);
-	printf("colorEnd -> [%d]\n", c->color_bend); */
-	//printf("lineHeight -> [%d]\n", c->line_height);
 }

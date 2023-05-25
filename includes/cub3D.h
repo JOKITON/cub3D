@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/19 12:49:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:10:57 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,9 +73,18 @@ void	ft_put_stars(char **str, int j, int y, int len);
 void	ft_check_walls(t_map *map, char **copy, int x, int y);
 void	ft_wrong_char(t_map *map, char **file, int i, int j);
 void	ft_set_player(t_map *map, char **file, int i, int j);
-
 char	*get_next_line(int fd);
 int		ft_strcmp(char	*s1, char *s2);
 void	ft_print_map(t_map	*map, int type);
+
+// HOOK_RLTD
+void	get_hooks(t_in	*in);
+void	move_front(t_in	*in);
+void	move_back(t_in	*in);
+void	move_left(t_in	*in);
+void	move_right(t_in	*in);
+
+// FREE
+void	free_program(t_in	*in);
 
 #endif

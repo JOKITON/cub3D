@@ -6,15 +6,15 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/23 16:03:25 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/25 17:43:57 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
-void	print_math(t_in	*in, t_grid	*grid)
+/*void	print_math(t_in	*in, t_grid	*grid)
 {
-	printf("\n	////////////////*PRINT_MATH*////////////////\n");
+	printf("\n	////////////////PRINT_MATH////////////////\n");
 	printf("\n			_INIT_DATA_:\n");
 	printf("\n	   DIR -> {%c}\n", in->map->typ);
 	printf("	 POS_X -> {%f}\n", in->grid->pos_x);
@@ -50,7 +50,7 @@ void	print_math(t_in	*in, t_grid	*grid)
 	printf("	Color_Start -> {%d}\n", grid->vec->c->color_bstart);
 	printf("	Color_End -> {%d}\n", grid->vec->c->color_bend);
 	printf("	---------------------------------------------\n");
-}
+}*/
 
 void	crt_image(double x, t_in *in, t_grid *grid)
 {
@@ -74,9 +74,7 @@ void	init_image(t_in	*in)
 {
 	double	x;
 
-	x = (double)0;
+	x = 0.;
 	while (x++ <= (in->grid->screen_width))
-	{
 		crt_image(x, in, in->grid);
-	}
 }

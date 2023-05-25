@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/19 19:07:40 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/25 13:27:37 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,13 +37,16 @@ MAP_SRC = map param umap utils valid
 LIB_SRC = ft_memset ft_calloc ft_split ft_strcmp ft_strdup \
 			ft_strjoin ft_strlen ft_strncpy ft_strvld
 
+HOOK_SRC = get_hooks moves_map moves_cam
+
 GNL_SRC = get_next_line
 
 SRC = 	$(addsuffix .c, $(SOURCE_TREE)) \
 		$(addsuffix .c, $(addprefix images/, $(IMAGE_SRC))) \
 		$(addsuffix .c, $(addprefix $(LIBFT_DIR), $(LIB_SRC))) \
 		$(addsuffix .c, $(addprefix get_next_line/, $(GNL_SRC))) \
-		$(addsuffix .c, $(addprefix map/, $(MAP_SRC)))
+		$(addsuffix .c, $(addprefix map/, $(MAP_SRC))) \
+		$(addsuffix .c, $(addprefix hooks/, $(HOOK_SRC)))
 
 SRCDIR = srcs/
 SRCS := $(addprefix $(SRCDIR), $(SRC))

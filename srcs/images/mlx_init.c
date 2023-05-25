@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/23 16:03:06 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/25 12:31:48 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,23 @@ void	in_dir(t_grid *grid, t_map *map)
 {
 	if (map->typ == 'N')
 	{
-		grid->dir_y = (double)1;
-		grid->plane_x = (double)0.66;
+		grid->dir_y = 1.;
+		grid->plane_x = 0.66;
 	}
 	else if (map->typ == 'W')
 	{
-		grid->dir_x = (double)-1;
-		grid->plane_y = (double)-0.5;
+		grid->dir_x = -1.;
+		grid->plane_y = -0.66;
 	}
 	else if (map->typ == 'E')
 	{
-		grid->dir_x = (double)1;
-		grid->plane_y = (double)0.66;
+		grid->dir_x = 1.;
+		grid->plane_y = 0.66;
 	}
 	else if (map->typ == 'S')
 	{
-		grid->dir_y = (double)-1;
-		grid->plane_x = (double)-0.66;
+		grid->dir_y = -1.;
+		grid->plane_x = -0.66;
 	}
 }
 

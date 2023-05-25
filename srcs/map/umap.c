@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:29:38 by hcarrasc          #+#    #+#             */
-/*   Updated: 2023/05/19 12:18:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/23 16:07:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,6 @@ void	ft_set_player(t_map *map, char **file, int i, int j)
 	{
 		map->typ = file[i][j];
 		map->pla++;
-		printf("J is [%d]\n", j);
-		printf("I is [%d]\n", i);
 		map->x = j;
 		map->y = i;
 	}

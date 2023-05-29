@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/25 17:43:57 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:12:37 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ void	crt_image(double x, t_in *in, t_grid *grid)
 	get_height(grid, grid->vec, grid->vec->c);
 	//print_math(in, grid);
 	draw_ver_line((int)x, in, grid, grid->vec->c);
+	in->time->old_time = in->time->c_time;
+	in->time->c_time += 30;
+	in->time->frame_rate = (in->time->c_time - in->time->old_time) / 1000.;
+	in->time->m_speed = in->time->frame_rate * 8.;
+	in->time->r_speed = in->time->frame_rate * 3.;
 }
 
 void	init_image(t_in	*in)

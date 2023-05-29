@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/19 16:54:40 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/29 11:50:24 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,23 @@ typedef struct s_grid
 	t_vector	*vec;
 }	t_grid;
 
+typedef struct s_time
+{
+	double		old_time;
+	double		c_time;
+
+	double		frame_rate;
+
+	double		m_speed;
+	double		r_speed;
+}	t_time;
+
 typedef struct s_in
 {
 
 	t_grid		*grid;
 	t_map		*map;
+	t_time		*time;
 	mlx_t		*mlx_t;
 	mlx_image_t	*img;
 }	t_in;

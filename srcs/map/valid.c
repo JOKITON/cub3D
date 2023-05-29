@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:07:09 by hcarrasc          #+#    #+#             */
-/*   Updated: 2023/05/25 13:23:03 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:12:10 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,4 +81,3 @@ t_map	*ft_valid(t_map *map, int argc, char **arg)
 	//ft_exit_free_print("correcto", map);
 	return (map);
 }
-

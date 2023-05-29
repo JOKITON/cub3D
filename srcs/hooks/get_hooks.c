@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:34:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/25 17:58:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/29 12:28:50 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	keyhook(mlx_key_data_t keydata, t_in	*in)
 {
 	if (keydata.key == MLX_KEY_ESCAPE)
 		free_program(in);
-	else if (keydata.key == MLX_KEY_W && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_W)
 		move_front(in);
 	else if (keydata.key == MLX_KEY_S)
 		move_back(in);
@@ -46,9 +46,9 @@ void	keyhook(mlx_key_data_t keydata, t_in	*in)
 		move_left(in);
 	else if (keydata.key == MLX_KEY_D)
 		move_right(in);
-	else if (keydata.key == MLX_KEY_LEFT && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_LEFT)
 		move_cam_left(in);
-	else if (keydata.key == MLX_KEY_RIGHT && keydata.action == MLX_PRESS)
+	else if (keydata.key == MLX_KEY_RIGHT)
 		move_cam_right(in);
 	else
 		return ;

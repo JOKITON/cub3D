@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/30 19:43:25 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:20:03 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	crt_image(double x, t_in *in, t_grid *grid)
 {
+	grid->or_x = (int)x;
 	grid->map_x = (int)grid->pos_x;
 	grid->map_y = (int)grid->pos_y;
 	init_ray_dis(grid, x, grid->vec);

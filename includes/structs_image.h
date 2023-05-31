@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/31 12:32:53 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:27:23 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,12 @@ typedef struct s_colors
 	double	text_num;
 
 	double	wall_hit;
-	double	text_coord;
+	double	text_x;
+	double	text_y;
 	double	text_width;
+
+	double	step;
+	double	text_pos;
 }	t_colors;
 
 typedef struct s_vector
@@ -51,6 +55,8 @@ typedef struct s_vector
 
 typedef struct s_grid
 {
+	int			or_x;
+
 	int			map_y;
 	int			map_x;
 
@@ -91,6 +97,7 @@ typedef struct s_in
 	t_time		*time;
 	mlx_t		*mlx_t;
 	mlx_image_t	*img;
+	mlx_image_t	*img2;
 	xpm_t		*xpm;
 }	t_in;
 

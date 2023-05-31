@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/31 12:34:24 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/31 16:29:31 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,31 @@ void	redraw_texture(t_in *in, t_grid *grid, t_colors *c)
 			* (grid->vec->short_wall_dist * grid->vec->raydir_x);
 	c->wall_hit -= floor(c->wall_hit);
 	in->xpm = mlx_load_xpm42(trim_dir(in->map->no));
-	c->text_coord = c->wall_hit * (c->text_width);
+	c->text_width = in->xpm->texture.width;
+	c->text_x = c->wall_hit * (c->text_width);
 	if (grid->vec->axe == 0 && grid->vec->raydir_x > 0.)
-		c->text_coord = c->text_width - c->text_coord - 1;
+		c->text_x = c->text_width - c->text_x - 1;
 	if (grid->vec->axe == 1 && grid->vec->raydir_y < 0.)
-		c->text_coord = c->text_width - c->text_coord - 1;
+		c->text_x = c->text_width - c->text_x - 1;
+	c->step = 1.0 * in->xpm->texture.height / c->line_height;
+	c->text_pos = (c->color_bstart - grid->screen_height
+			/ 2 + c->line_height / 2) * c->step;
+	redraw(in, c);
+}
+
+void	redraw(t_in	*in, t_colors *c)
+{
+	int	y;
+
+	in->img2 = mlx_texture_to_image(in->mlx_t, in->xpm);
+	y = c->color_bstart;
+	while (y >= c->color_bstart && y < c->color_bend)
+	{
+		c->text_y = (int)(c->text_pos) & (in->xpm->texture.height - 1);
+		c->text_pos += c->step;
+		in->img2->pixels
+		//mlx_put_pixel(in->img, in->grid->or_x, y, in->xpm->color_count)
+	}
 }
 
 void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c)

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/29 11:50:24 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:32:53 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,17 @@
 
 typedef struct s_colors
 {
-	int	line_height;
+	int		line_height;
 
-	int	color_bstart;
-	int	color_bend;
+	int		color_bstart;
+	int		color_bend;
 
-	int	color;
+	int		wall_color;
+	double	text_num;
+
+	double	wall_hit;
+	double	text_coord;
+	double	text_width;
 }	t_colors;
 
 typedef struct s_vector
@@ -86,6 +91,7 @@ typedef struct s_in
 	t_time		*time;
 	mlx_t		*mlx_t;
 	mlx_image_t	*img;
+	xpm_t		*xpm;
 }	t_in;
 
 #endif

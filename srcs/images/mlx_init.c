@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/29 11:41:31 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:33:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,5 @@ void	in_structs(t_in *in)
 	in_grid(in->grid, in->map);
 	in->time = malloc(sizeof(t_time));
 	ft_memset(in->time, 0, sizeof(t_time));
+	in->xpm = malloc(sizeof(xpm_t));
 }

@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   image.c                                            :+:      :+:    :+:   */
+/*   map_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/29 12:12:37 by jaizpuru         ###   ########.fr       */
+/*   Created: 2023/05/30 15:35:16 by jaizpuru          #+#    #+#             */
+/*   Updated: 2023/05/30 15:42:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+void	get_speed(t_time	*time)
+{
+	time->old_time = time->c_time;
+	time->c_time += 20;
+	time->frame_rate = (time->c_time - time->old_time) / 1000.;
+	time->m_speed = time->frame_rate * 8.;
+	time->r_speed = time->frame_rate * 3.;
+}
 
 /*void	print_math(t_in	*in, t_grid	*grid)
 {
@@ -51,35 +60,3 @@
 	printf("	Color_End -> {%d}\n", grid->vec->c->color_bend);
 	printf("	---------------------------------------------\n");
 }*/
-
-void	crt_image(double x, t_in *in, t_grid *grid)
-{
-	grid->map_x = (int)grid->pos_x;
-	grid->map_y = (int)grid->pos_y;
-	init_ray_dis(grid, x, grid->vec);
-	step_comp_calc(grid, grid->vec);
-	grid->vec->axe = get_wall(in->map, grid, grid->vec);
-	if (grid->vec->axe == 0)
-		grid->vec->short_wall_dist
-			= ((grid->vec->sidedist_x) - grid->vec->deltadist_x);
-	else
-		grid->vec->short_wall_dist
-			= ((grid->vec->sidedist_y) - grid->vec->deltadist_y);
-	get_height(grid, grid->vec, grid->vec->c);
-	//print_math(in, grid);
-	draw_ver_line((int)x, in, grid, grid->vec->c);
-	in->time->old_time = in->time->c_time;
-	in->time->c_time += 30;
-	in->time->frame_rate = (in->time->c_time - in->time->old_time) / 1000.;
-	in->time->m_speed = in->time->frame_rate * 8.;
-	in->time->r_speed = in->time->frame_rate * 3.;
-}
-
-void	init_image(t_in	*in)
-{
-	double	x;
-
-	x = 0.;
-	while (x++ <= (in->grid->screen_width))
-		crt_image(x, in, in->grid);
-}

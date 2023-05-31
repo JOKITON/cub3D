@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/29 11:14:58 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/31 12:24:46 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	*ft_calloc(size_t count, size_t size);
 
 // GNL
 size_t	ft_strlen_get(const char *s);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 
 // MAP_FUNCTIONS
 void	ft_hei_wid(t_map *map);
@@ -83,6 +84,13 @@ void	move_front(t_in	*in);
 void	move_back(t_in	*in);
 void	move_left(t_in	*in);
 void	move_right(t_in	*in);
+
+// TIME_RLTD
+void	get_speed(t_time	*time);
+
+// TEXTURES_RLTD
+void	redraw_texture(t_in *in, t_grid *grid, t_colors *c);
+char	*trim_dir(char	*str);
 
 // FREE
 void	free_program(t_in	*in);

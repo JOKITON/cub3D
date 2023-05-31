@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/25 13:27:37 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/05/31 12:24:58 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,9 +30,9 @@ LIBFT_LIB = $(addprefix $(LIBFT_DIR), libft.a)
 #SRCS
 SOURCE_TREE = main
 
-IMAGE_SRC = mlx_init image vectors color_vectors
+IMAGE_SRC = mlx_init map_image map_vectors map_colors map_time
 
-MAP_SRC = map param umap utils valid
+MAP_SRC = map param umap utils valid trim_dir
 
 LIB_SRC = ft_memset ft_calloc ft_split ft_strcmp ft_strdup \
 			ft_strjoin ft_strlen ft_strncpy ft_strvld

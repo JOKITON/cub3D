@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/05/31 12:24:58 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/06/02 11:44:26 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ LIBFT_LIB = $(addprefix $(LIBFT_DIR), libft.a)
 #SRCS
 SOURCE_TREE = main
 
-IMAGE_SRC = mlx_init map_image map_vectors map_colors map_time
+IMAGE_SRC = mlx_init map_image map_vectors map_colors map_time map_textures
 
 MAP_SRC = map param umap utils valid trim_dir
 
@@ -74,7 +74,13 @@ $(OBJ_DIR)%.o: $(SRCDIR)%.c
 	mkdir -p $(@D)
 	$(CC) $(FLAGS) $(FSANITIZE) $(INCLUDES) -c $< -o $@
 
-$(NAME): $(OBJS)
+MLX42:
+	git clone https://github.com/codam-coding-college/MLX42
+	cmake -B build MLX42/
+	cmake --build build -j4
+	mv build/ MLX42/
+
+$(NAME): MLX42 $(OBJS)
 	$(CC) $(FLAGS) $(OBJS) $(LIBS) $(INCLUDES) -o $(NAME)
 
 clean:
@@ -82,6 +88,7 @@ clean:
 
 fclean: clean
 	$(RM) $(RM_FLAGS) $(NAME)
+	$(RM) $(RM_FLAGS) $(MINILIB_MAC_DIR)
 
 re: fclean all
 

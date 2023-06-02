@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/31 12:33:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/02 10:41:08 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,34 @@ void	in_grid(t_grid	*grid, t_map *map)
 	map->y -= 1;
 }
 
+mlx_image_t	*load_xpm(t_in	*in, mlx_image_t	*img, char	*dir)
+{
+	in->xpm = NULL;
+	img = (mlx_image_t *)malloc(sizeof(mlx_image_t));
+	in->xpm = mlx_load_xpm42(dir);
+	if (!in->xpm)
+		exit (EXIT_FAILURE);
+	img = mlx_texture_to_image(in->mlx_t, &in->xpm->texture);
+	if (!img)
+		exit (EXIT_FAILURE);
+	return (img);
+}
+
 void	in_mlx(t_in	*in)
 {
 	in->mlx_t = mlx_init(1920, 1080, "cub3D", true);
+	in->img = malloc(sizeof(mlx_image_t));
 	in->img = mlx_new_image(in->mlx_t, 1920, 1080);
+	if (!in->img)
+		exit (EXIT_FAILURE);
+	in->textures->img_north = load_xpm
+		(in, in->textures->img_north, trim_dir(in->map->no));
+	in->textures->img_east = load_xpm
+		(in, in->textures->img_east, trim_dir(in->map->ea));
+	in->textures->img_west = load_xpm
+		(in, in->textures->img_west, trim_dir(in->map->we));
+	in->textures->img_south = load_xpm
+		(in, in->textures->img_south, trim_dir(in->map->so));
 }
 
 void	in_structs(t_in *in)
@@ -62,6 +86,9 @@ void	in_structs(t_in *in)
 	in->mlx_t = malloc(sizeof(mlx_t));
 	ft_memset(in->mlx_t, 0, sizeof(mlx_t));
 	in->img = malloc(sizeof(mlx_image_t));
+	in->textures = malloc(sizeof(t_text));
+	ft_memset(in->textures, 0, sizeof(t_text));
+	in->xpm = malloc(sizeof(xpm_t));
 	in_mlx(in);
 	in->grid = malloc(sizeof(t_grid));
 	ft_memset(in->grid, 0, sizeof(t_grid));

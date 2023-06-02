@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/31 16:27:23 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/02 10:30:41 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ typedef struct s_colors
 	double	wall_hit;
 	double	text_x;
 	double	text_y;
-	double	text_width;
+	int		text_width;
 
 	double	step;
 	double	text_pos;
@@ -89,16 +89,24 @@ typedef struct s_time
 	double		r_speed;
 }	t_time;
 
+typedef struct s_text
+{
+	mlx_image_t	*img_north;
+	mlx_image_t	*img_east;
+	mlx_image_t	*img_west;
+	mlx_image_t	*img_south;
+}	t_text;
+
 typedef struct s_in
 {
 
-	t_grid		*grid;
-	t_map		*map;
-	t_time		*time;
-	mlx_t		*mlx_t;
-	mlx_image_t	*img;
-	mlx_image_t	*img2;
-	xpm_t		*xpm;
+	t_grid			*grid;
+	t_map			*map;
+	t_time			*time;
+	mlx_t			*mlx_t;
+	mlx_image_t		*img;
+	t_text			*textures;
+	xpm_t			*xpm;
 }	t_in;
 
 #endif

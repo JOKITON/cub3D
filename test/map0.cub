@@ -1,16 +1,16 @@
-NO ./test_xpm/sol.XPM
+NO ./test/test_xpm/goku.xpm42
 
 F 220,100,0
 
-SO ./ruta_a_la_textura_sur
-WE ./ruta_a_la_textura_oeste
+SO ./test/test_xpm/arnold.xpm42
+WE ./test/test_xpm/creatine.xpm42
 C 225,30,0
 
 
 
 
 
-EA ./ruta_a_la_textura_este
+EA ./test/test_xpm/goku.xpm42
 1111111111111111111111111
 1000000000000000000000001
 1000000000001010000000001

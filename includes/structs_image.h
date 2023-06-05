@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/02 10:30:41 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/05 12:35:46 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,11 @@ typedef struct s_colors
 	int		color_bend;
 
 	int		wall_color;
-	double	text_num;
+	int		text_num;
 
-	double	wall_hit;
+	int		wall_hit;
 	double	text_x;
-	double	text_y;
+	int		text_y;
 	int		text_width;
 
 	double	step;
@@ -91,6 +91,7 @@ typedef struct s_time
 
 typedef struct s_text
 {
+	int			*texture;
 	mlx_image_t	*img_north;
 	mlx_image_t	*img_east;
 	mlx_image_t	*img_west;

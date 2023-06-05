@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/31 16:25:22 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/03 13:39:56 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,8 @@
 
 # define WALL 1
 # define SPACE 0
+# define TEX_HEIGHT 64
+# define TEX_WIDTH 64
 
 // INIT_FUNCTIONS
 void	in_grid(t_grid	*grid, t_map *map);
@@ -91,6 +93,7 @@ void	move_right(t_in	*in);
 void	get_speed(t_time	*time);
 
 // TEXTURES_RLTD
+void	draw_column(t_in *in, t_colors *c, struct mlx_texture *texture, int x);
 void	redraw_texture(t_in *in, t_grid *grid, t_colors *c);
 char	*trim_dir(char	*str);
 

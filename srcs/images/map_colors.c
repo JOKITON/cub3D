@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 11:53:24 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:47:02 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	get_height(t_grid	*grid, t_vector	*vec, t_colors	*c)
 	if (c->color_bend >= grid->screen_height)
 		c->color_bend = grid->screen_height - 1;
 	if (vec->axe == 1)
-		c->wall_color = 0xFFFFF0;
+		c->wall_color = 0x00FFFFF0;
 	else
-		c->wall_color = 0xF0FFF0;
+		c->wall_color = 0x00F0FFF0;
 }
 
 void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c)
@@ -37,10 +37,10 @@ void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c)
 	{
 		pixelstart = &in->img->pixels[(y * in->img->width + x) * BPP];
 		if (y <= c->color_bstart)
-			mlx_draw_pixel(pixelstart, 0xA8A495);
+			mlx_draw_pixel(pixelstart, 0x0FA8A495);
 		else if (y > c->color_bstart && y < c->color_bend)
 			mlx_draw_pixel(pixelstart, c->wall_color);
 		else if (y >= c->color_bend)
-			mlx_draw_pixel(pixelstart, 0x556B2F);
+			mlx_draw_pixel(pixelstart, 0x00512B2B);
 	}
 }

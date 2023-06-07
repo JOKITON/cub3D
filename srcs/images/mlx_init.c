@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 11:24:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:55:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,6 @@ mlx_image_t	*load_xpm(t_in	*in, char	*dir)
 
 	in->xpm = NULL;
 	in->xpm = mlx_load_xpm42(dir);
-	printf("Loaded XPM -> {%s}\n", dir);
 	if (!in->xpm)
 		exit (EXIT_FAILURE);
 	img = malloc(sizeof(mlx_image_t));

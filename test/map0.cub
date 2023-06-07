@@ -2,15 +2,15 @@ NO ./test/test_xpm/bricks.xpm42
 
 F 220,100,0
 
-SO ./test/test_xpm/bricks.xpm42
-WE ./test/test_xpm/bricks.xpm42
+SO ./test/test_xpm/bookshelf.xpm42
+WE ./test/test_xpm/gemov2.xpm42
 C 225,30,0
 
 
 
 
 
-EA ./test/test_xpm/bricks.xpm42
+EA ./test/test_xpm/tilledsoil.xpm42
 1111111111111111111111111
 1000000000000000000000001
 1000000000001010000000001

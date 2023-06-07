@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 11:46:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 11:59:15 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 13:51:26 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,15 +25,15 @@ void	get_color(t_text *textures, t_in *in, t_colors *c)
 	}
 	if (in->grid->vec->axe == 0)
 	{
-		if (in->grid->dir_x >= 0.)
+		if (in->grid->vec->step_x >= 0.)
 			c->wall_color = in->textures->img_east->pixels[(int)(TEX_HEIGHT
 					* c->text_y + c->text_x) * BPP];
-		if (in->grid->dir_x < 0.)
+		if (in->grid->vec->step_x < 0.)
 			c->wall_color = in->textures->img_west->pixels[(int)(TEX_HEIGHT
 					* c->text_y + c->text_x) * BPP];
 	}
-	c->wall_color *= 500;
 }
+
 
 void	redraw(t_in	*in, t_colors *c)
 {
@@ -43,7 +43,6 @@ void	redraw(t_in	*in, t_colors *c)
 	y = c->color_bstart;
 	while (y >= c->color_bstart && y < c->color_bend)
 	{
-		c->wall_color = (uint32_t)0;
 		pixel = &in->img->pixels[(y * in->img->width + in->grid->or_x) * BPP];
 		c->text_y = (int)(c->text_pos) & (TEX_HEIGHT - 1);
 		c->text_pos += c->step;
@@ -51,6 +50,7 @@ void	redraw(t_in	*in, t_colors *c)
 		mlx_draw_pixel(pixel, c->wall_color);
 		y++;
 	}
+	printf("WallColor -> {%d}\n", c->wall_color);
 }
 
 void	redraw_texture(t_in *in, t_grid *grid, t_colors *c)

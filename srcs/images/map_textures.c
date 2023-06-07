@@ -6,34 +6,46 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 11:46:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 13:51:26 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:06:02 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
+
+int	get_rgba(int r, int g, int b, int a)
+{
+	int	ret;
+
+	ret = (r << 24) | (g << 16) | (b << 8) | (a);
+	return (ret);
+}
+
+int	get_rgba_pieces(uint8_t	*ar, int pos)
+{
+	return (get_rgba(ar[pos], ar[pos + 1], ar[pos + 2], ar[pos + 3]));
+}
 
 void	get_color(t_text *textures, t_in *in, t_colors *c)
 {
 	if (in->grid->vec->axe == 1)
 	{
 		if (in->grid->vec->step_y > 0.)
-			c->wall_color = in->textures->img_north->pixels[(int)(TEX_HEIGHT
-					* c->text_y + c->text_x) * BPP];
+			c->wall_color = get_rgba_pieces(in->textures->img_north->pixels,
+					(int)(TEX_HEIGHT * c->text_y + c->text_x) * BPP);
 		if (in->grid->vec->step_y < 0.)
-			c->wall_color = in->textures->img_south->pixels[(int)(TEX_HEIGHT
-					* c->text_y + c->text_x) * BPP];
+			c->wall_color = get_rgba_pieces(in->textures->img_south->pixels,
+					(int)(TEX_HEIGHT * c->text_y + c->text_x) * BPP);
 	}
 	if (in->grid->vec->axe == 0)
 	{
 		if (in->grid->vec->step_x >= 0.)
-			c->wall_color = in->textures->img_east->pixels[(int)(TEX_HEIGHT
-					* c->text_y + c->text_x) * BPP];
+			c->wall_color = get_rgba_pieces(in->textures->img_east->pixels,
+					(int)(TEX_HEIGHT * c->text_y + c->text_x) * BPP);
 		if (in->grid->vec->step_x < 0.)
-			c->wall_color = in->textures->img_west->pixels[(int)(TEX_HEIGHT
-					* c->text_y + c->text_x) * BPP];
+			c->wall_color = get_rgba_pieces(in->textures->img_west->pixels,
+					(int)(TEX_HEIGHT * c->text_y + c->text_x) * BPP);
 	}
 }
-
 
 void	redraw(t_in	*in, t_colors *c)
 {
@@ -50,7 +62,6 @@ void	redraw(t_in	*in, t_colors *c)
 		mlx_draw_pixel(pixel, c->wall_color);
 		y++;
 	}
-	printf("WallColor -> {%d}\n", c->wall_color);
 }
 
 void	redraw_texture(t_in *in, t_grid *grid, t_colors *c)

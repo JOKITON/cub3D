@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 13:48:05 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:05:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ void	init_image(t_in	*in)
 	double	x;
 
 	x = 0.;
-	ft_memset(in->img->pixels, 255, in->img->width * in->img->height * sizeof(int32_t));
+	ft_memset(in->img->pixels, 255, in->img->width
+		* in->img->height * sizeof(int32_t));
 	while (x++ <= (in->grid->screen_width))
 		crt_image(x, in, in->grid);
 }

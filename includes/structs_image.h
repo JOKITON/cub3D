@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 13:50:32 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 23:06:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ typedef struct s_colors
 	int		color_bstart;
 	int		color_bend;
 
-	uint8_t	wall_color;
-	int			text_num;
+	int		wall_color;
+	int		text_num;
 
-	double		wall_hit;
+	double	wall_hit;
 	int		text_x;
 	int		text_y;
 	int		text_width;
@@ -100,7 +100,6 @@ typedef struct s_text
 
 typedef struct s_in
 {
-
 	t_grid			*grid;
 	t_map			*map;
 	t_time			*time;

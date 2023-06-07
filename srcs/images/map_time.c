@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:35:16 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/01 21:52:23 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:50:59 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	get_speed(t_time	*time)
 {
 	time->old_time = time->c_time;
-	time->c_time += 10;
+	time->c_time += 15;
 	time->frame_rate = (time->c_time - time->old_time) / 1000.;
 	time->m_speed = time->frame_rate * 8.;
 	time->r_speed = time->frame_rate * 3.;

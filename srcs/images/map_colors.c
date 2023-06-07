@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/03 13:45:29 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/06 11:09:09 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,18 @@ void	get_height(t_grid	*grid, t_vector	*vec, t_colors	*c)
 
 void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c)
 {
-	int	y;
+	int			y;
+	uint8_t		*pixelstart;
 
 	y = 0;
 	while (y++ <= grid->screen_height)
 	{
+		pixelstart = &in->img->pixels[(y * in->img->width + x) * BPP];
 		if (y <= c->color_bstart)
-			mlx_put_pixel(in->img, x, y, 0xA8A495);
+			mlx_draw_pixel(pixelstart, 0xA8A495);
 		else if (y > c->color_bstart && y < c->color_bend)
-			mlx_put_pixel(in->img, x, y, c->wall_color);
+			mlx_draw_pixel(pixelstart, c->wall_color);
 		else if (y >= c->color_bend)
-			mlx_put_pixel(in->img, x, y, 0x556B2F);
+			mlx_draw_pixel(pixelstart, 0x556B2F);
 	}
 }

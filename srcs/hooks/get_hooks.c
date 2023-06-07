@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:34:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/30 15:43:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:50:13 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void	free_program(t_in	*in)
 	free(in->map->file);
 	free(in->map);
 	free(in);
+	mlx_terminate(in->mlx_t);
 	exit (EXIT_SUCCESS);
 }
 
@@ -52,8 +53,6 @@ void	keyhook(mlx_key_data_t keydata, t_in	*in)
 		move_cam_right(in);
 	else
 		return ;
-/* 	printf("DirX -> {%f}\n", in->grid->dir_x);
-	printf("DirY -> {%f}\n", in->grid->dir_y); */
 	init_image(in);
 	if (!in->img || (mlx_image_to_window(in->mlx_t, in->img, 0, 0) < 0))
 		exit(EXIT_FAILURE);

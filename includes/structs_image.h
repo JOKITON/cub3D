@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/05 12:35:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:39:51 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ typedef struct s_colors
 	int		color_bstart;
 	int		color_bend;
 
-	int		wall_color;
-	int		text_num;
+	uint32_t	wall_color;
+	int			text_num;
 
-	int		wall_hit;
-	double	text_x;
+	double		wall_hit;
+	int		text_x;
 	int		text_y;
 	int		text_width;
 
@@ -36,19 +36,19 @@ typedef struct s_colors
 
 typedef struct s_vector
 {
-	double		raydir_x;
-	double		raydir_y;
+	float		raydir_x;
+	float		raydir_y;
 
-	double		sidedist_x;
-	double		sidedist_y;
+	float		sidedist_x;
+	float		sidedist_y;
 
-	double		deltadist_x;
-	double		deltadist_y;
+	float		deltadist_x;
+	float		deltadist_y;
 
 	int			step_x;
 	int			step_y;
 
-	double		short_wall_dist;
+	float		short_wall_dist;
 	int			axe;
 	t_colors	*c;
 }	t_vector;
@@ -63,30 +63,30 @@ typedef struct s_grid
 	int			screen_height;
 	int			screen_width;
 
-	double		pos_x;
-	double		pos_y;
+	float		pos_x;
+	float		pos_y;
 
-	double		dir_x;
-	double		dir_y;
+	float		dir_x;
+	float		dir_y;
 
-	double		plane_x;
-	double		plane_y;
+	float		plane_x;
+	float		plane_y;
 
-	double		camera_x;
-	double		camera_y;
+	float		camera_x;
+	float		camera_y;
 
 	t_vector	*vec;
 }	t_grid;
 
 typedef struct s_time
 {
-	double		old_time;
-	double		c_time;
+	float		old_time;
+	float		c_time;
 
-	double		frame_rate;
+	float		frame_rate;
 
-	double		m_speed;
-	double		r_speed;
+	float		m_speed;
+	float		r_speed;
 }	t_time;
 
 typedef struct s_text

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/05 12:29:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:24:30 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,11 @@ mlx_image_t	*load_xpm(t_in	*in, char	*dir)
 	mlx_image_t	*img;
 
 	in->xpm = NULL;
-	//in->xpm = mlx_load_xpm42(dir);
-	in->xpm = mlx_load_xpm42("./test/test_xpm/bricks.xpm42");
+	in->xpm = mlx_load_xpm42(dir);
+	printf("Loaded XPM -> {%s}\n", dir);
 	if (!in->xpm)
 		exit (EXIT_FAILURE);
+	img = malloc(sizeof(mlx_image_t));
 	img = mlx_texture_to_image(in->mlx_t, &in->xpm->texture);
 	if (!img)
 		exit (EXIT_FAILURE);
@@ -75,12 +76,12 @@ void	in_mlx(t_in	*in)
 		exit (EXIT_FAILURE);
 	in->textures->img_north = load_xpm
 		(in, trim_dir(in->map->no));
-/*  	in->textures->img_east = load_xpm
-		(in, in->textures->img_east, trim_dir(in->map->ea));
+	in->textures->img_east = load_xpm
+		(in, trim_dir(in->map->ea));
 	in->textures->img_west = load_xpm
-		(in, in->textures->img_west, trim_dir(in->map->we));
+		(in, trim_dir(in->map->we));
 	in->textures->img_south = load_xpm
-		(in, in->textures->img_south, trim_dir(in->map->so)); */
+		(in, trim_dir(in->map->so));
 }
 
 void	in_structs(t_in *in)

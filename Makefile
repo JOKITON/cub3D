@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/06/02 11:44:26 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/06/05 20:20:26 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -65,7 +65,7 @@ FSANITIZE = -g3 -v
 #INCLUDES
 LIBMLX	:= ./lib/MLX42
 INCLUDES := -I ./include -I MLX42/include
-LIBS	:= MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm
+LIBS	:= MLX42/build/libmlx42.a -ldl -lglfw -pthread -lm -Ofast
 FLAGS_LIBX = -L . -lmlx -framework OpenGL -framework AppKit
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 11:46:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 11:49:46 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:59:15 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void	get_color(t_text *textures, t_in *in, t_colors *c)
 			c->wall_color = in->textures->img_west->pixels[(int)(TEX_HEIGHT
 					* c->text_y + c->text_x) * BPP];
 	}
+	c->wall_color *= 500;
 }
 
 void	redraw(t_in	*in, t_colors *c)

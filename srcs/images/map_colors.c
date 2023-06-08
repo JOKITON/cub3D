@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 13:47:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:18:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,20 @@ void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c)
 	uint8_t		*pixelstart;
 
 	y = 0;
-	while (y++ <= grid->screen_height)
+	if (!c->ceiling_color || !c->floor_color)
+	{	
+		change_ceiling_color(in);
+		change_floor_color(in);
+	}
+	while (y <= grid->screen_height)
 	{
 		pixelstart = &in->img->pixels[(y * in->img->width + x) * BPP];
 		if (y <= c->color_bstart)
-			mlx_draw_pixel(pixelstart, 0x0FA8A495);
+			mlx_draw_pixel(pixelstart, c->floor_color);
 		else if (y > c->color_bstart && y < c->color_bend)
 			mlx_draw_pixel(pixelstart, c->wall_color);
 		else if (y >= c->color_bend)
-			mlx_draw_pixel(pixelstart, 0x00512B2B);
+			mlx_draw_pixel(pixelstart, c->ceiling_color);
+		y++;
 	}
 }

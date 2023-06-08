@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 23:06:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:28:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,9 @@ typedef struct s_colors
 	int		color_bstart;
 	int		color_bend;
 
+	int		floor_color;
 	int		wall_color;
+	int		ceiling_color;
 	int		text_num;
 
 	double	wall_hit;

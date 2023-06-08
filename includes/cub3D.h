@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/03 13:39:56 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/08 19:03:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include "../MLX42/include/MLX42/MLX42.h"
 # include "../MLX42/include/MLX42/MLX42_Int.h"
-# include "../MLX42/include/MLX42/MLX42_Input.h"
 # include "structs_image.h"
 # include "structs_map.h"
 
@@ -88,6 +87,8 @@ void	move_front(t_in	*in);
 void	move_back(t_in	*in);
 void	move_left(t_in	*in);
 void	move_right(t_in	*in);
+void	change_floor_color(t_in *in);
+void	change_ceiling_color(t_in *in);
 
 // TIME_RLTD
 void	get_speed(t_time	*time);

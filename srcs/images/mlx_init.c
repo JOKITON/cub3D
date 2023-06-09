@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/08 19:16:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/09 09:59:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	in_grid(t_grid	*grid, t_map *map)
 mlx_image_t	*load_xpm(t_in	*in, char	*dir)
 {
 	mlx_image_t	*img;
+	//void		*img;
 
 	in->xpm = NULL;
 	in->xpm = mlx_load_xpm42(dir);
@@ -63,14 +64,20 @@ mlx_image_t	*load_xpm(t_in	*in, char	*dir)
 	img = mlx_texture_to_image(in->mlx_t, &in->xpm->texture);
 	if (!img)
 		exit (EXIT_FAILURE);
+	//img = mlx_xpm_file_to_image(in->mlx->init, dir, NULL, NULL);
+	//add_north (int *) = (int *)mlx_get_data_addr(in->img->img,
+	//		NULL, NULL, NULL);
 	return (img);
 }
 
 void	in_mlx(t_in	*in)
 {
 	in->mlx_t = mlx_init(1920, 1080, "cub3D", true);
-	in->img = malloc(sizeof(mlx_image_t));
+	//in->mlx->init = mlx_init();
 	in->img = mlx_new_image(in->mlx_t, 1920, 1080);
+	//in->mlx->img->img = mlx_new_image(in->mlx->init, WINDOW_WIDTH, WINDOW_HEIGHT);
+	//in->mlx->img->add = (int *)mlx_get_data_addr(mlx->img->img,
+	//	&mlx->img.bits_ppixel, &mlx->img.line_length, &mlx->img.endian);
 	if (!in->img)
 		exit (EXIT_FAILURE);
 	in->textures->img_north = load_xpm
@@ -88,6 +95,10 @@ void	in_structs(t_in *in)
 	in->mlx_t = malloc(sizeof(mlx_t));
 	ft_memset(in->mlx_t, 0, sizeof(mlx_t));
 	in->img = malloc(sizeof(mlx_image_t));
+	//in->mlx = malloc(sizeof(t_mlx));
+	//ft_memset(in->mlx, 0, sizeof(t_mlx));
+	//in->mlx->img = malloc(sizeof(t_img));
+	//ft_memset(in->mlx->img, 0, sizeof(t_img));
 	in->textures = malloc(sizeof(t_text));
 	ft_memset(in->textures, 0, sizeof(t_text));
 	in->xpm = malloc(sizeof(xpm_t));

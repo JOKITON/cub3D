@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 11:46:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 23:06:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/09 09:58:00 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	get_rgba_pieces(uint8_t	*ar, int pos)
 
 void	get_color(t_text *textures, t_in *in, t_colors *c)
 {
+	//c->wall_color = in->textures->add_north[(int)(TEX_HEIGHT * c->text_y + c->text_x)];
+	//c->wall_color = in->textures->add_east[(int)(TEX_HEIGHT * c->text_y + c->text_x)];
+	//c->wall_color = in->textures->add_west[(int)(TEX_HEIGHT * c->text_y + c->text_x)];
+	//c->wall_color = in->textures->add_south[(int)(TEX_HEIGHT * c->text_y + c->text_x)];
 	if (in->grid->vec->axe == 1)
 	{
 		if (in->grid->vec->step_y > 0.)
@@ -59,6 +63,7 @@ void	redraw(t_in	*in, t_colors *c)
 		c->text_y = (int)(c->text_pos) & (TEX_HEIGHT - 1);
 		c->text_pos += c->step;
 		get_color(in->textures, in, c);
+		//mlx->img.add[(y * in->img->width + in->grid->or_x)] = c->wall_color;
 		mlx_draw_pixel(pixel, c->wall_color);
 		y++;
 	}

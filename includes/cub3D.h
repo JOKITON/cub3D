@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/08 19:03:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/08 22:44:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 # define SPACE 0
 # define TEX_HEIGHT 64
 # define TEX_WIDTH 64
+# define WINDOW_HEIGHT 1080
+# define WINDOW_WIDTH 1920
 
 // INIT_FUNCTIONS
 void	in_grid(t_grid	*grid, t_map *map);

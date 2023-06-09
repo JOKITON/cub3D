@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/08 19:18:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/09 09:52:55 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c)
 	while (y <= grid->screen_height)
 	{
 		pixelstart = &in->img->pixels[(y * in->img->width + x) * BPP];
+		//mlx->img.add[(y * in->img->width + x)] = c->floor_color;
+		//mlx->img.add[(y * in->img->width + x)] = c->wall_color;
+		//mlx->img.add[(y * in->img->width + x)] = c->ceiling_color;
 		if (y <= c->color_bstart)
 			mlx_draw_pixel(pixelstart, c->floor_color);
 		else if (y > c->color_bstart && y < c->color_bend)

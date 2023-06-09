@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:48:57 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/08 19:28:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/09 09:57:38 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,32 @@ typedef struct s_text
 	mlx_image_t	*img_east;
 	mlx_image_t	*img_west;
 	mlx_image_t	*img_south;
+	//void	*img_north;
+	//int	*add_north;
+	//void	*img_east;
+	//int	*add_east;
+	//void	*img_west;
+	//int	*add_west;
+	//void	*img_south;
+	//int	*add_south;
 }	t_text;
+
+/* typedef struct s_img
+{
+	void	*img;
+	int		*add;
+
+	int		bits_ppixel;
+	int		line_length;
+	int		endian;
+}	t_img;
+
+typedef struct s_mlx
+{
+	void	*init;
+	void	*win;
+	t_img	*img;
+}	t_mlx; */
 
 typedef struct s_in
 {
@@ -106,6 +131,7 @@ typedef struct s_in
 	t_map			*map;
 	t_time			*time;
 	mlx_t			*mlx_t;
+	//t_mlx			*mlx;
 	mlx_image_t		*img;
 	t_text			*textures;
 	xpm_t			*xpm;

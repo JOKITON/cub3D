@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:07:09 by hcarrasc          #+#    #+#             */
-/*   Updated: 2023/05/17 10:41:43 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/06/07 11:50:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	ft_check_file(char *file)
 	close(fd);
 }
 
-void	ft_check_maps(t_map *map, char *file)
+t_map	*ft_check_maps(t_map *map, char *file)
 {
 	map = ft_calloc(1, sizeof(t_map));
 	ft_get_file(map, file);
@@ -69,13 +69,14 @@ void	ft_check_maps(t_map *map, char *file)
 	ft_check_char(map);
 	ft_check_walls(map, map->star, map->x, map->y);
 	ft_print_map(map, 2);
+	return (map);
 }
 
-void	ft_valid(t_map *map, int argc, char **arg)
+t_map	*ft_valid(t_map *map, int argc, char **arg)
 {
 	ft_check_args(argc);
 	ft_check_exte(arg[1]);
 	ft_check_file(arg[1]);
-	ft_check_maps(map, arg[1]);
-	//ft_exit_free_print("correcto", map);
+	map = ft_check_maps(map, arg[1]);
+	return (map);
 }

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:16:49 by hcarrasc          #+#    #+#             */
-/*   Updated: 2023/05/16 11:08:55 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/05/25 13:18:36 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_wall_map_while(t_map *map, char **aux, int k, int j)
 
 	while (j < (map->hei + 2))
 	{
-		aux[j] = (char *)malloc(sizeof(char) * (map->wid + 3));
+		aux[j] = malloc(sizeof(char) * (map->wid + 3));
 		if (j == 0 || j == (map->hei + 1))
 			ft_first_line(aux, j, map->wid + 2);
 		else
@@ -53,14 +53,11 @@ void	ft_wall_map_while(t_map *map, char **aux, int k, int j)
 
 void	ft_wall_map(t_map *map)
 {
-	int		k;
-	int		j;
 	char	**aux;
 
-	k = 0;
-	j = 0;
+	map->star = aux;
 	aux = (char **)malloc(sizeof(char *) * (map->hei + 3));
-	ft_wall_map_while(map, aux, k, j);
+	ft_wall_map_while(map, aux, 0, 0);
 	map->star = aux;
 }
 
@@ -68,19 +65,17 @@ void	ft_check_char(t_map *map)
 {
 	int		i;
 	int		j;
-	char	**star;
 
 	i = 0;
-	star = map->star;
 	map->typ = 0;
 	map->pla = 0;
-	while (star[i])
+	while (map->star[i])
 	{
 		j = 0;
-		while (star[i][j])
+		while (map->star[i][j])
 		{
-			ft_wrong_char(map, star, i, j);
-			ft_set_player(map, star, i, j);
+			ft_wrong_char(map, map->star, i, j);
+			ft_set_player(map, map->star, i, j);
 			j++;
 		}
 		i++;

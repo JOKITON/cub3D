@@ -66,7 +66,7 @@ all: $(NAME)
 
 $(OBJ_DIR)%.o: $(SRCDIR)%.c
 	mkdir -p $(@D)
-	$(CC) $(FLAGS) $(FLAGS_LIBX) -c $< -o $@
+	$(CC) $(FLAGS) -c $< $(FLAGS_LIBX) -o $@
 
 
 $(NAME): $(OBJS)

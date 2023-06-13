@@ -16,8 +16,6 @@
 # include "structs_image.h"
 # include "structs_map.h"
 # include "../minilib-mac/mlx.h"
-# include "../minilib-mac/mlx_int.h"
-# include "../minilib-mac/mlx_new_window.h"
 
 # include <math.h>
 # include <stdlib.h>

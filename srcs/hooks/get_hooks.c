@@ -59,6 +59,7 @@ int	keyhook(int keydata, t_in	*in)
 		return ;
 	init_image(in);
 	mlx_put_image_to_window(in->mlx->init, in->mlx->win, in->mlx->img->img, 0, 0);
+	return (0);
 }
 
 void	get_hooks(t_in	*in)

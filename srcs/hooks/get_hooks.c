@@ -12,7 +12,7 @@
 
 #include "../../includes/cub3D.h"
 
-void	free_program(t_in	*in)
+int	free_program(t_in	*in)
 {
 	int	i;
 
@@ -35,7 +35,7 @@ void	free_program(t_in	*in)
 	exit (EXIT_SUCCESS);
 }
 
-void	keyhook(int keydata, t_in	*in)
+int	keyhook(int keydata, t_in	*in)
 {
 	if (keydata == MAIN_ESC)
 		free_program(in);
@@ -58,8 +58,7 @@ void	keyhook(int keydata, t_in	*in)
 	else
 		return ;
 	init_image(in);
-	if (!in->mlx->win || (mlx_put_image_to_window
-			(in->mlx->init, in->mlx->win, in->mlx->img->img, 0, 0) < 0));
+	if (!in->mlx->win || mlx_put_image_to_window(in->mlx->init, in->mlx->win, in->mlx->img->img, 0, 0) < 0);
 }
 
 void	get_hooks(t_in	*in)

@@ -112,6 +112,6 @@ void	redraw_text(t_in *in, t_grid *grid, t_colors *c);
 char	*trim_dir(char	*str);
 
 // FREE
-void	free_program(t_in	*in);
+int free_program(t_in	*in);
 
 #endif

@@ -37,8 +37,6 @@ void	init_image(t_in	*in)
 	double	x;
 
 	x = 0.;
-	ft_memset(in->img->pixels, 255, in->img->width
-		* in->img->height * sizeof(int32_t));
 	while (x++ <= (in->grid->screen_width))
 		crt_image(x, in, in->grid);
 }

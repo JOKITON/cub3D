@@ -74,13 +74,13 @@ void	in_mlx(t_in	*in, t_mlx *mlx)
 	if (!in->mlx->img->img)
 		exit (EXIT_FAILURE);
 	in->textures->img_north = load_xpm
-		(in, &in->textures->add_north, trim_dir(in->map->no));
+		(in, in->textures->add_north, trim_dir(in->map->no));
 	in->textures->img_east = load_xpm
-		(in, &in->textures->add_east, trim_dir(in->map->ea));
+		(in, in->textures->add_east, trim_dir(in->map->ea));
 	in->textures->img_west = load_xpm
-		(in, &in->textures->add_west, trim_dir(in->map->we));
+		(in, in->textures->add_west, trim_dir(in->map->we));
 	in->textures->img_south = load_xpm
-		(in, &in->textures->add_south, trim_dir(in->map->so));
+		(in, in->textures->add_south, trim_dir(in->map->so));
 }
 
 void	in_structs(t_in *in)

@@ -99,6 +99,8 @@ void	move_front(t_in	*in);
 void	move_back(t_in	*in);
 void	move_left(t_in	*in);
 void	move_right(t_in	*in);
+void	move_cam_left(t_in	*in);
+void  move_cam_right(t_in *in);
 void	change_floor_color(t_in *in);
 void	change_ceiling_color(t_in *in);
 

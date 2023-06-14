@@ -31,7 +31,7 @@ int	free_program(t_in	*in)
 	free(in->map->file);
 	free(in->map);
 	free(in);
-	mlx_destroy_window(in->mlx->init, in->mlx->win->img);
+	mlx_destroy_window(in->mlx->init, in->mlx->win);
 	exit (EXIT_SUCCESS);
 }
 

@@ -16,7 +16,7 @@ NAME = cub3D
 
 CC = gcc
 
-#FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 # Libraries
 MLIB = libmlx.a
@@ -71,7 +71,7 @@ $(OBJ_DIR)%.o: $(SRCDIR)%.c
 
 $(NAME): $(OBJS)
 	make -C $(MINILIB_MAC_DIR) all
-	$(CC) $(FLAGS) $(MINILIB_MAC) $(FLAGS_LIBX) -o $(NAME) $(OBJS)
+	$(CC) $(FLAGS) $(OBJS) $(MINILIB_MAC) $(FLAGS_LIBX) -o $(NAME)
 
 clean:
 	make -C $(MINILIB_MAC_DIR) clean

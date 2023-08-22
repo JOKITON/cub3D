@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_colors.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 15:38:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/09 15:54:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:10:11 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,15 @@ void	draw_ver_line(int x, t_in	*in, t_grid	*grid, t_colors	*c)
 		change_ceiling_color(in);
 		change_floor_color(in);
 	}
-	while (y <= grid->screen_height)
+	while (y < grid->screen_height)
 	{
+		//printf("Max size -> %d\n", x);
 		if (y <= c->color_bstart)
-			in->mlx->img->add[(y * WINDOW_WIDTH + x)] = c->floor_color;
+			in->mlx->img->add[((y * WINDOW_WIDTH) + x)] = c->floor_color;
 		else if (y > c->color_bstart && y < c->color_bend)
-			in->mlx->img->add[(y * WINDOW_WIDTH + x)] = c->wall_color;
+			in->mlx->img->add[((y * WINDOW_WIDTH) + x)] = c->wall_color;
 		else if (y >= c->color_bend)
-			in->mlx->img->add[(y * WINDOW_WIDTH + x)] = c->ceiling_color;
+			in->mlx->img->add[((y * WINDOW_WIDTH) + x)] = c->ceiling_color;
 		y++;
 	}
 }

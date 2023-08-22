@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_textures.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/02 11:46:40 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/09 16:45:48 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:07:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,19 @@ void	get_color(t_text *textures, t_in *in, t_colors *c)
 	if (in->grid->vec->axe == 1)
 	{
 		if (in->grid->vec->step_y > 0.)
-			c->wall_color = in->textures->add_north[(int)
+			c->wall_color = textures->add_north[(int)
 				(TEX_HEIGHT * c->text_y + c->text_x)];
 		if (in->grid->vec->step_y < 0.)
-			c->wall_color = in->textures->add_south[(int)
+			c->wall_color = textures->add_south[(int)
 				(TEX_HEIGHT * c->text_y + c->text_x)];
 	}
 	if (in->grid->vec->axe == 0)
 	{
 		if (in->grid->vec->step_x >= 0.)
-			c->wall_color = in->textures->add_east[(int)
+			c->wall_color = textures->add_east[(int)
 				(TEX_HEIGHT * c->text_y + c->text_x)];
 		if (in->grid->vec->step_x < 0.)
-			c->wall_color = in->textures->add_west[(int)
+			c->wall_color = textures->add_west[(int)
 				(TEX_HEIGHT * c->text_y + c->text_x)];
 	}
 }

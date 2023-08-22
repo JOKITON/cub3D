@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/09 16:45:45 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/22 12:08:19 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	crt_image(double x, t_in *in, t_grid *grid)
 			= ((grid->vec->sidedist_y) - grid->vec->deltadist_y);
 	get_height(grid, grid->vec, grid->vec->c);
 	get_speed(in->time);
-	draw_ver_line((int)x, in, grid, grid->vec->c);
+	draw_ver_line(x, in, grid, grid->vec->c);
 	redraw_text(in, grid, grid->vec->c);
 }
 
@@ -37,6 +37,6 @@ void	init_image(t_in	*in)
 	double	x;
 
 	x = 0.;
-	while (x++ <= (in->grid->screen_width))
+	while (x++ < (in->grid->screen_width))
 		crt_image(x, in, in->grid);
 }

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 13:16:49 by hcarrasc          #+#    #+#             */
-/*   Updated: 2023/05/25 13:18:36 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/22 11:34:29 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ void	ft_wall_map(t_map *map)
 {
 	char	**aux;
 
+	aux = NULL;
 	map->star = aux;
 	aux = (char **)malloc(sizeof(char *) * (map->hei + 3));
 	ft_wall_map_while(map, aux, 0, 0);

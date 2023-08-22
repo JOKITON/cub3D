@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+         #
+#    By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/06/09 16:23:30 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/08/22 11:49:28 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = cub3D
 
 CC = gcc
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -fsanitize=address -Wall -Wextra -Werror
 
 # Libraries
 MLIB = libmlx.a
@@ -66,7 +66,7 @@ all: $(NAME)
 
 $(OBJ_DIR)%.o: $(SRCDIR)%.c
 	mkdir -p $(@D)
-	$(CC) $(FLAGS) -c $< $(FLAGS_LIBX) -o $@
+	$(CC) $(FLAGS) -c $< -o $@
 
 
 $(NAME): $(OBJS)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/22 12:08:19 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:13:27 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,6 @@ void	init_image(t_in	*in)
 	double	x;
 
 	x = 0.;
-	while (x++ < (in->grid->screen_width))
+	while (++x < (in->grid->screen_width))
 		crt_image(x, in, in->grid);
 }

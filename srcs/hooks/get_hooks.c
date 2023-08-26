@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:34:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/10 11:54:18 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:21:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,8 @@ int	keyhook(int keydata, t_in	*in)
 	else
 		return (1);
 	init_image(in);
-	mlx_put_image_to_window(in->mlx->init, in->mlx->win, in->mlx->img->img, 0, 0);
+	mlx_put_image_to_window
+		(in->mlx->init, in->mlx->win, in->mlx->img->img, 0, 0);
 	return (0);
 }
 

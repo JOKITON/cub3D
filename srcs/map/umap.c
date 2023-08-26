@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 12:29:38 by hcarrasc          #+#    #+#             */
-/*   Updated: 2023/05/23 16:07:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:19:24 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,9 @@ void	ft_first_line(char **str, int pos, int len)
 {
 	int	i;
 
-	i = 0;
-	while (i < len)
-	{
-			str[pos][i] = '*';
-			i++;
-	}
+	i = -1;
+	while (++i < len)
+		str[pos][i] = '*';
 	str[pos][i] = '\0';
 }
 

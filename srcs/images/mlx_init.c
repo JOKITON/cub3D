@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/22 12:16:42 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:20:14 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,29 +51,19 @@ void	in_grid(t_grid	*grid, t_map *map)
 	map->y -= 1;
 }
 
-/*void	*load_xpm(t_in	*in, int *ar, char	*dir)
+int	*load_xpm(void *img, t_in	*in, char	*dir)
 {
-	void		*img;
+	int		x;
+	int		y;
+	int		*pix;
 
-	img = mlx_xpm_file_to_image(in->mlx->init, dir, NULL, NULL);
-	ar = (int *)mlx_get_data_addr(img,
-			NULL, NULL, NULL);
-	return (img);
-}*/
-
-int		*load_xpm(void *img, t_in	*in, char	*dir)
-{
-    int         x;
-    int         y;
-	int			*pix;
-
-    y = 64;
+	y = 64;
 	x = 64;
 	img = mlx_xpm_file_to_image(in->mlx->init, dir, &x, &y);
-	pix = (int *)mlx_get_data_addr(img,
-			&in->mlx->img->bits_ppixel, &in->mlx->img->line_length, &in->mlx->img->endian);
+	pix = (int *)mlx_get_data_addr(img, &in->mlx->img->bits_ppixel,
+			&in->mlx->img->line_length, &in->mlx->img->endian);
 	return (pix);
-} 
+}
 
 void	in_mlx(t_in	*in, t_mlx *mlx)
 {
@@ -81,16 +71,20 @@ void	in_mlx(t_in	*in, t_mlx *mlx)
 	mlx->win = mlx_new_window(in->mlx->init, WINDOW_WIDTH,
 			WINDOW_HEIGHT, "cub3d");
 	mlx->img->img = mlx_new_image(in->mlx->init,
-			WINDOW_WIDTH, WINDOW_HEIGHT + 1);
+			WINDOW_WIDTH, WINDOW_HEIGHT);
 	mlx->img->add = (int *)mlx_get_data_addr(in->mlx->img->img,
 			&in->mlx->img->bits_ppixel,
 			&in->mlx->img->line_length, &in->mlx->img->endian);
 	if (!in->mlx->img->img)
 		exit (EXIT_FAILURE);
-	in->textures->add_north = load_xpm(in->textures->img_north, in, trim_dir(in->map->no));
-	in->textures->add_east = load_xpm(in->textures->img_east, in, trim_dir(in->map->ea));
-	in->textures->add_west = load_xpm(in->textures->img_west, in, trim_dir(in->map->we));
-	in->textures->add_south = load_xpm(in->textures->img_south, in, trim_dir(in->map->so));
+	in->textures->add_north = load_xpm
+		(in->textures->img_north, in, trim_dir(in->map->no));
+	in->textures->add_east = load_xpm
+		(in->textures->img_east, in, trim_dir(in->map->ea));
+	in->textures->add_west = load_xpm
+		(in->textures->img_west, in, trim_dir(in->map->we));
+	in->textures->add_south = load_xpm
+		(in->textures->img_south, in, trim_dir(in->map->so));
 }
 
 void	in_structs(t_in *in)

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 13:51:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/22 11:33:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:20:57 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **ar)
 {
 	t_in		*in;
 	t_map		*map;
-	
+
 	in = malloc(sizeof(t_in));
 	map = malloc(sizeof(t_map));
 	ft_memset(in, 0, sizeof(t_in));

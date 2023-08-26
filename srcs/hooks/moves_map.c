@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 11:23:18 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/05/29 12:33:39 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:22:02 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	move_front(t_in	*in)
 		if (in->map->map[(int)in->grid->pos_y]
 			[(int)(in->grid->pos_x + fabs(in->grid->dir_x) * in->time->m_speed)]
 			!= '1')
-		in->grid->pos_x += fabs(in->grid->dir_x) * in->time->m_speed;
+			in->grid->pos_x += fabs(in->grid->dir_x) * in->time->m_speed;
 	if (in->grid->dir_x < 0.)
 		if (in->map->map[(int)in->grid->pos_y]
 			[(int)(in->grid->pos_x - fabs(in->grid->dir_x) * in->time->m_speed)]
@@ -42,7 +42,7 @@ void	move_left(t_in	*in)
 		if (in->map->map[(int)(in->grid->pos_y - fabs(in->grid->dir_x)
 				* in->time->m_speed)][(int)in->grid->pos_x]
 			!= '1')
-		in->grid->pos_y -= fabs(in->grid->dir_x) * in->time->m_speed;
+			in->grid->pos_y -= fabs(in->grid->dir_x) * in->time->m_speed;
 	if (in->grid->dir_x < 0.)
 		if (in->map->map[(int)(in->grid->pos_y + fabs(in->grid->dir_x)
 				* in->time->m_speed)][(int)in->grid->pos_x]
@@ -66,7 +66,7 @@ void	move_right(t_in	*in)
 		if (in->map->map[(int)(in->grid->pos_y + fabs(in->grid->dir_x)
 				* in->time->m_speed)][(int)in->grid->pos_x]
 			!= '1')
-		in->grid->pos_y += fabs(in->grid->dir_x) * in->time->m_speed;
+			in->grid->pos_y += fabs(in->grid->dir_x) * in->time->m_speed;
 	if (in->grid->dir_x < 0.)
 		if (in->map->map[(int)(in->grid->pos_y - fabs(in->grid->dir_x)
 				* in->time->m_speed)][(int)in->grid->pos_x]
@@ -90,7 +90,7 @@ void	move_back(t_in	*in)
 		if (in->map->map[(int)in->grid->pos_y]
 			[(int)(in->grid->pos_x - fabs(in->grid->dir_x) * in->time->m_speed)]
 			!= '1')
-		in->grid->pos_x -= fabs(in->grid->dir_x) * in->time->m_speed;
+			in->grid->pos_x -= fabs(in->grid->dir_x) * in->time->m_speed;
 	if (in->grid->dir_x < 0.)
 		if (in->map->map[(int)in->grid->pos_y]
 			[(int)(in->grid->pos_x + fabs(in->grid->dir_x) * in->time->m_speed)]

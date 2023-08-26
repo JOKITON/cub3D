@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/22 12:02:30 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:16:18 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 # define TEX_WIDTH 64
 # define WINDOW_HEIGHT 1080
 # define WINDOW_WIDTH 1920
-
 
 # define MAIN_ESC 53
 # define ARROW_LEFT 123
@@ -100,7 +99,7 @@ void	move_back(t_in	*in);
 void	move_left(t_in	*in);
 void	move_right(t_in	*in);
 void	move_cam_left(t_in	*in);
-void  move_cam_right(t_in *in);
+void	move_cam_right(t_in *in);
 void	change_floor_color(t_in *in);
 void	change_ceiling_color(t_in *in);
 
@@ -112,6 +111,6 @@ void	redraw_text(t_in *in, t_grid *grid, t_colors *c);
 char	*trim_dir(char	*str);
 
 // FREE
-int free_program(t_in	*in);
+int		free_program(t_in	*in);
 
 #endif

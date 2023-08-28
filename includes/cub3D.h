@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3D.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/26 20:16:18 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 12:42:00 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ char	*ft_strdup(char *s1);
 int		ft_strncmp(char *s1, char *s2, unsigned int n);
 char	**ft_split(char *s, char c);
 void	*ft_calloc(size_t count, size_t size);
+int		ft_atoi(const char *str);
 
 // GNL
 size_t	ft_strlen_get(const char *s);

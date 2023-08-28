@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/08/22 11:49:28 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/08/28 12:42:14 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ NAME = cub3D
 
 CC = gcc
 
-FLAGS = -fsanitize=address -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror
 
 # Libraries
 MLIB = libmlx.a
@@ -35,7 +35,7 @@ IMAGE_SRC = mlx_init map_image map_vectors map_colors map_time map_textures
 MAP_SRC = map param umap utils valid trim_dir
 
 LIB_SRC = ft_memset ft_calloc ft_split ft_strcmp ft_strdup \
-			ft_strjoin ft_strlen ft_strncpy ft_strvld
+			ft_strjoin ft_strlen ft_strncpy ft_strvld ft_atoi
 
 HOOK_SRC = get_hooks moves_map moves_cam hooks_color
 

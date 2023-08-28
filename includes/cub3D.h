@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/28 15:52:23 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:46:48 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@
 # define S_KEY 1
 # define A_KEY	0
 # define D_KEY	2
-# define KEY_1			18
-# define KEY_2			19
+# define KEY_1			83
+# define KEY_2			84
 
 // INIT_FUNCTIONS
 void	in_grid(t_grid	*grid, t_map *map);
@@ -110,6 +110,7 @@ void	get_speed(t_time	*time);
 // TEXTURES_RLTD
 void	redraw_text(t_in *in, t_grid *grid, t_colors *c);
 char	*trim_dir(char	*str);
+int		get_colors(char	*str);
 
 // FREE
 void	ft_doublefree(char	**str);

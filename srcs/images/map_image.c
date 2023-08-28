@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/28 15:49:17 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:46:12 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ int	get_colors(char	*str)
 
 void	crt_image(double x, t_in *in, t_grid *grid)
 {
-	in->grid->vec->c->ceiling_color = get_colors(in->map->c);
-	in->grid->vec->c->floor_color = get_colors(in->map->f);
 	grid->or_x = (int)x;
 	grid->map_x = (int)grid->pos_x;
 	grid->map_y = (int)grid->pos_y;

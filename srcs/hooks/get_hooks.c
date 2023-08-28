@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:34:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/28 16:38:33 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:45:39 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 int	keyhook(int keydata, t_in	*in)
 {
+	printf("%d\n", keydata);
 	if (keydata == MAIN_ESC)
 		free_program(in);
 	else if (keydata == W_KEY)

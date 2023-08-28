@@ -6,7 +6,7 @@
 #    By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/28 13:42:01 by jaizpuru          #+#    #+#              #
-#    Updated: 2023/08/28 12:42:14 by jaizpuru         ###   ########.fr        #
+#    Updated: 2023/08/28 16:33:05 by jaizpuru         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ LIBFT_DIR = libft/
 LIBFT_LIB = $(addprefix $(LIBFT_DIR), libft.a)
 
 #SRCS
-SOURCE_TREE = main
+SOURCE_TREE = main utils_free
 
 IMAGE_SRC = mlx_init map_image map_vectors map_colors map_time map_textures
 

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 10:40:37 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/28 12:42:00 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:52:23 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ void	redraw_text(t_in *in, t_grid *grid, t_colors *c);
 char	*trim_dir(char	*str);
 
 // FREE
+void	ft_doublefree(char	**str);
 int		free_program(t_in	*in);
 
 #endif

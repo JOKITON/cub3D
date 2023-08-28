@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   param.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/10 14:08:46 by hcarrasc          #+#    #+#             */
-/*   Updated: 2023/06/02 12:02:06 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:04:18 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ void	ft_get_file(t_map *map, char *file)
 
 	fd = open(file, O_RDONLY);
 	line = get_next_line(fd);
-	aux = NULL;
 	aux = ft_strjoin(line, "");
 	line = get_next_line(fd);
 	while (line)

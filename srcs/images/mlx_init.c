@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mlx_init.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:50:24 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/26 20:20:14 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:29:40 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	in_dir(t_grid *grid, t_map *map)
 {
 	if (map->typ == 'N')
 	{
-		grid->dir_y = 1.;
+		grid->dir_y = -1.;
 		grid->plane_x = 0.66;
 	}
 	else if (map->typ == 'W')
@@ -31,7 +31,7 @@ void	in_dir(t_grid *grid, t_map *map)
 	}
 	else if (map->typ == 'S')
 	{
-		grid->dir_y = -1.;
+		grid->dir_y = 1.;
 		grid->plane_x = -0.66;
 	}
 }
@@ -60,8 +60,14 @@ int	*load_xpm(void *img, t_in	*in, char	*dir)
 	y = 64;
 	x = 64;
 	img = mlx_xpm_file_to_image(in->mlx->init, dir, &x, &y);
+	if (!img)
+	{
+		perror("Error : XPM file not correct");
+		exit (1);
+	}
 	pix = (int *)mlx_get_data_addr(img, &in->mlx->img->bits_ppixel,
 			&in->mlx->img->line_length, &in->mlx->img->endian);
+	free(dir);
 	return (pix);
 }
 

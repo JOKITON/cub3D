@@ -6,36 +6,11 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 10:34:48 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/28 12:47:37 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:52:04 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
-
-
-
-int	free_program(t_in	*in)
-{
-	int	i;
-
-	i = 0;
-	while (in->map->map && in->map->map[i])
-	{
-		free(in->map->map[i]);
-		if (in->map->star && in->map->star[i])
-			free(in->map->star[i]);
-		if (in->map->file && in->map->file[i])
-			free(in->map->file[i]);
-		i++;
-	}
-	free(in->map->map);
-	free(in->map->star);
-	free(in->map->file);
-	free(in->map);
-	free(in);
-	mlx_destroy_window(in->mlx->init, in->mlx->win);
-	exit (EXIT_SUCCESS);
-}
 
 int	keyhook(int keydata, t_in	*in)
 {

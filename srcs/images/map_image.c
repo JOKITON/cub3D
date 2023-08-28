@@ -3,17 +3,42 @@
 /*                                                        :::      ::::::::   */
 /*   map_image.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/26 20:13:27 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 15:49:17 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../includes/cub3D.h"
 
+int	getrgb(int r, int g, int b)
+{
+	return (b + g * 256 + r * 256 * 256);
+}
+
+int	get_colors(char	*str)
+{
+	char	**numbers;
+	int		rgb[3];
+
+	str = ft_substr(str, 2, ft_strlen(str) - 1);
+	numbers = ft_split(str, ',');
+	rgb[0] = ft_atoi(numbers[0]);
+	rgb[1] = ft_atoi(numbers[1]);
+	rgb[2] = ft_atoi(numbers[2]);
+	free(numbers[0]);
+	free(numbers[1]);
+	free(numbers[2]);
+	free(numbers);
+	free(str);
+	return (getrgb(rgb[0], rgb[1], rgb[2]));
+}
+
 void	crt_image(double x, t_in *in, t_grid *grid)
 {
+	in->grid->vec->c->ceiling_color = get_colors(in->map->c);
+	in->grid->vec->c->floor_color = get_colors(in->map->f);
 	grid->or_x = (int)x;
 	grid->map_x = (int)grid->pos_x;
 	grid->map_y = (int)grid->pos_y;

@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 12:41:13 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/28 13:28:02 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/08/28 16:39:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_atoi(const char *str)
 	negative = 1;
 	while (str[loop] == '\n' || str[loop] == '\t' || str[loop] == '\v'
 		|| str[loop] == ' ' || str[loop] == '\f' || str[loop] == '\r')
-			loop++;
+		loop++;
 	if (str[loop] == '-' || str[loop] == '+')
 	{
 		if (str[loop++] == '-')

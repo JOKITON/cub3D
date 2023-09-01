@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/28 15:51:50 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/09/01 10:40:10 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/01 11:50:21 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	free_program(t_in	*in)
 	free(in->grid->vec);
 	free(in->grid);
 	free(in->time);
-	free(in);
 	mlx_destroy_window(in->mlx->init, in->mlx->win);
+	free(in);
 	exit (EXIT_SUCCESS);
 }

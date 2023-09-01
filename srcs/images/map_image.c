@@ -6,7 +6,7 @@
 /*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 15:34:01 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/08/28 16:46:12 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/01 12:02:45 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,7 @@ int	get_colors(char	*str)
 	rgb[0] = ft_atoi(numbers[0]);
 	rgb[1] = ft_atoi(numbers[1]);
 	rgb[2] = ft_atoi(numbers[2]);
-	free(numbers[0]);
-	free(numbers[1]);
-	free(numbers[2]);
-	free(numbers);
+	ft_doublefree(numbers);
 	free(str);
 	return (getrgb(rgb[0], rgb[1], rgb[2]));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map_time.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaizpuru <jaizpuru@student.42urduliz.co    +#+  +:+       +#+        */
+/*   By: jaizpuru <jaizpuru@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/30 15:35:16 by jaizpuru          #+#    #+#             */
-/*   Updated: 2023/06/07 11:50:59 by jaizpuru         ###   ########.fr       */
+/*   Updated: 2023/09/01 11:01:35 by jaizpuru         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	get_speed(t_time	*time)
 {
 	time->old_time = time->c_time;
-	time->c_time += 15;
+	time->c_time += 30;
 	time->frame_rate = (time->c_time - time->old_time) / 1000.;
 	time->m_speed = time->frame_rate * 8.;
 	time->r_speed = time->frame_rate * 3.;
